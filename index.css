@@ -13,6 +13,9 @@ ul {
   font-size: 1.5em;
   font-weight: 900;
   margin-left: 30px;
+  animation-name: moveToRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
 }
 
 .root {
@@ -31,14 +34,21 @@ ul {
   background-position: top;
   opacity: 3;
   background-size: cover;
-  /* clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 30% 100%); */
 }
 
-#58611129-2dbc-4a81-a72f-77ddfc1b1b49,
-#ebbb6b7c-945c-41ee-a792-de0e43191bd8,
-#ff24da26-a969-4f0e-ba1e-a122ead6c6e3,
-#0440483e-ca0e-4120-8c50-4c8cd9b965d6,
 .description {
   line-height: 1.5;
   width: 60vw;
+}
+
+@keyframes moveToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

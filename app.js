@@ -95,9 +95,9 @@ fetch("https://ghibliapi.herokuapp.com/films")
             film.title === "Whisper of the Heart" ||
             film.title === "Princess Mononoke"
           ) {
-            filmFrame.style.backgroundImage = `url("images/${film.title}.jpeg")`;
+            filmFrame.style.backgroundImage = `linear-gradient(to right bottom, #d9eb34, #e2eb34, transparent 50%), url("images/${film.title}.jpeg")`;
           } else {
-            filmFrame.style.backgroundImage = `url("images/${film.title}.jpg")`;
+            filmFrame.style.backgroundImage = `linear-gradient(to right bottom, #d9eb34, #e2eb34, transparent 50%), url("images/${film.title}.jpg")`;
           }
           root.appendChild(filmFrame);
       }
