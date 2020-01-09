@@ -1,20 +1,5 @@
 const root = document.getElementById("root");
 
-// let filmData = {
-//   filmdata: []
-// };
-
-// const getData = async () => {
-//   const films = await axios.get("https://ghibliapi.herokuapp.com/films");
-//   console.log(films.data);
-
-//   filmData.filmdata = films.data;
-// };
-
-// getData();
-
-// console.log(filmData);
-
 function makeFrame() {
   let frame = document.createElement("div");
 
@@ -54,13 +39,6 @@ function makeList(film) {
   return unList;
 }
 
-// filmData.filmdata.forEach(film => {
-//   let filmFrame = makeFrame();
-//   let filmList = makeList(film);
-//   filmFrame.appendChild(filmList);
-//   root.appendChild(filmFrame);
-// });
-
 fetch("https://ghibliapi.herokuapp.com/films")
   .then(res => {
     return res.json();
@@ -68,15 +46,6 @@ fetch("https://ghibliapi.herokuapp.com/films")
   .then(filmdata => {
     console.log(filmdata);
     filmdata.forEach(film => {
-      //   if (
-      //     film.title ===
-      //     ("Grave of the Fireflies" ||
-      //       "Only Yesterday" ||
-      //       "Pom Poko" ||
-      //       "My Neighbors the Yamadas")
-      //   ) {
-      //     return;
-      //   }
       switch (film.title) {
         case "Grave of the Fireflies":
           break;
