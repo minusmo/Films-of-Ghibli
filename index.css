@@ -32,6 +32,7 @@ ul {
 #hero-main {
   background-image: url("./images/Studio_Ghibli_Logo.jpg");
   background-position: center center;
+  background-size: cover;
   background-color: rgba(240, 240, 240, 6);
   background-blend-mode: multiply;
   width: 100vw;
