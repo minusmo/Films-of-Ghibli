@@ -6,10 +6,11 @@
 
 ul {
   height: 100%;
-  line-height: 1.75em;
+  line-height: 1.5em;
   font-size: 1.3em;
   font-weight: 900;
   margin-left: 2em;
+  margin-top: 1em;
   /* animation-name: fadeIn;
   animation-duration: 3s;
   animation-timing-function: ease-in;
@@ -89,6 +90,7 @@ div.heroFrame:nth-of-type(even) .filmFrame {
 
 .moreInfo {
   padding-top: 1em;
+  padding-bottom: 0.5em;
   text-decoration: underline black;
   cursor: pointer;
 }
@@ -107,7 +109,7 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   align-items: center;
   background-color: rgba(70, 130, 180, 0.7);
   width: 100vw;
-  height: 100vh;
+  height: auto;
   z-index: 999;
 }
 
@@ -144,6 +146,7 @@ div.heroFrame:nth-of-type(even) .filmFrame {
 .listContent {
   font-size: 1.5em;
   padding-top: 0;
+  padding-bottom: 0.5em;
 }
 
 @keyframes fadeIn {
@@ -193,6 +196,10 @@ div.heroFrame:nth-of-type(even) .filmFrame {
     padding-left: 0;
   }
 
+  .listHead {
+    padding-bottom: 0.5em;
+  }
+
   .filmFrame {
     flex: 1 1 45%;
     width: 100vw;
@@ -211,9 +218,23 @@ div.heroFrame:nth-of-type(even) .filmFrame {
     bottom: 0;
     top: auto;
     overflow-y: visible;
+    height: auto;
+    background-color: rgba(70, 130, 180, 0.9);
+  }
+
+  .closeButton {
+    width: 1.5em;
+    height: 1.5em;
+    top: 1em;
+    left: 1em;
   }
 
   ul {
     font-size: 1.1em;
+    line-height: 1.2em;
+  }
+
+  ul.infoList {
+    margin: 1em 0;
   }
 }
