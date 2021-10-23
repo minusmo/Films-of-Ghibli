@@ -1,3 +1,14 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,15 +22,6 @@ ul {
   font-weight: 900;
   margin-left: 2em;
   margin-top: 1em;
-  /* animation-name: fadeIn;
-  animation-duration: 3s;
-  animation-timing-function: ease-in;
-  animation-delay: 1s; */
-  /* opacity: 0;
-  transition-duration: 1s;
-  transition-property: background, trasform;
-  transition-timing-function: ease-in;
-  transition-delay: .5s; */
 }
 
 #root {
@@ -60,16 +62,10 @@ ul {
 
 div.heroFrame:nth-of-type(even) {
   flex-direction: row-reverse;
-  padding-left: 2em;
 }
 
-div.heroFrame:nth-of-type(even) .catalog,
-.filmFrame {
-  padding-left: 0;
-}
-
-div.heroFrame:nth-of-type(even) .filmFrame {
-  transform: unset;
+div.heroFrame:nth-of-type(odd) .catalog {
+  text-align: right;
 }
 
 .catalog {
@@ -82,10 +78,11 @@ div.heroFrame:nth-of-type(even) .filmFrame {
 
 .filmFrame {
   flex: 1 1 45%;
-  height: 45vh;
-  transform: translateX(-10%);
+  height: auto;
+  /* transform: translateX(-10%); */
   overflow: hidden;
   object-fit: cover;
+  padding: 15%;
 }
 
 .moreInfo {
@@ -109,7 +106,7 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   align-items: center;
   background-color: rgba(70, 130, 180, 0.7);
   width: 100vw;
-  height: auto;
+  height: 100%;
   z-index: 999;
 }
 
@@ -152,17 +149,10 @@ div.heroFrame:nth-of-type(even) .filmFrame {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    /* transform: translateX(-100vw); */
   }
-
-  /* 80% {
-    opacity: 0.8;
-    transform: translateX(20px);
-  } */
 
   100% {
     opacity: 1;
-    /* transform: translateX(0); */
   }
 }
 
@@ -180,7 +170,7 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   content: "";
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 375px) and (max-width: 1024px) {
   #hero-main {
     background-image: url("./images/Studio-Ghibli-Logo.jpg");
     background-size: contain;
@@ -188,12 +178,11 @@ div.heroFrame:nth-of-type(even) .filmFrame {
 
   .heroFrame {
     flex-direction: column-reverse;
-    padding-bottom: 1em;
+    padding: 1em;
   }
 
   div.heroFrame:nth-of-type(even) {
     flex-direction: column-reverse;
-    padding-left: 0;
   }
 
   .listHead {
@@ -201,9 +190,11 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   }
 
   .filmFrame {
-    flex: 1 1 45%;
+    padding: 0%;
+  }
+
+  .filmFrame img {
     width: 100vw;
-    transform: unset;
   }
 
   .catalog {
@@ -214,11 +205,11 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   }
 
   .infoModal {
-    left: 0;
+    left: -0.9em;
     bottom: 0;
     top: auto;
     overflow-y: visible;
-    height: auto;
+    height: 100vh;
     background-color: rgba(70, 130, 180, 0.9);
   }
 
@@ -232,6 +223,66 @@ div.heroFrame:nth-of-type(even) .filmFrame {
   ul {
     font-size: 1.1em;
     line-height: 1.2em;
+  }
+
+  ul.infoList {
+    margin: 1em 0;
+  }
+}
+
+@media (max-width: 375px) {
+  #hero-main {
+    background-image: url("./images/Studio-Ghibli-Logo.jpg");
+    background-size: contain;
+  }
+
+  .heroFrame {
+    flex-direction: column-reverse;
+    padding: 1em;
+  }
+
+  div.heroFrame:nth-of-type(even) {
+    flex-direction: column-reverse;
+  }
+
+  .listHead {
+    padding-bottom: 0.5em;
+  }
+
+  .filmFrame {
+    padding: 0%;
+  }
+
+  .filmFrame img {
+    width: 100vw;
+  }
+
+  .catalog {
+    align-self: flex-start;
+    transform: translateY(1em);
+    display: flex;
+    align-items: center;
+  }
+
+  .infoModal {
+    left: -0.9em;
+    bottom: 0;
+    top: auto;
+    overflow-y: visible;
+    height: 100vh;
+    background-color: rgba(70, 130, 180, 0.9);
+  }
+
+  .closeButton {
+    width: 1.5em;
+    height: 1.5em;
+    top: 1em;
+    left: 1em;
+  }
+
+  ul {
+    font-size: 0.9em;
+    line-height: 0.8em;
   }
 
   ul.infoList {
