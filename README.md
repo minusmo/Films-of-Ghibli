@@ -1,5 +1,18 @@
-# Ghibli-Movie-Showcase-
+# Ghibli Movie Showcase
 
-### A Ghibli Showcase webpage with just html5, css3, vanillaJS
+## A webpage introducing Studio Ghibli's movies
 
-### Using Ghibli open api
+## Built with
+
+- HTML5
+- CSS3
+- Javascript(ES6)
+
+## Movie data is retrieved from
+
+- [Studio Ghibli API (v1.0.1)](https://ghibliapi.herokuapp.com/)
+
+## Thanks to
+
+- [AXIOS](https://axios-http.com/)
+- [Studio Ghibli](https://www.ghibli.jp/)
