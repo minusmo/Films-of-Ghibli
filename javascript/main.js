@@ -20,16 +20,16 @@ class Ghibli {
     return filmFrame;
   }
 
-  hideModal(e) {
-    e.preventDefault();
-    const modal = e.target.parentElement.parentElement;
+  hideModal(event) {
+    event.preventDefault();
+    const modal = event.target.parentElement.parentElement;
     modal.classList.remove("showing");
     modal.style.animation = "fadeOut 500ms forwards";
   }
 
-  showModal(e) {
-    e.preventDefault();
-    const modal = e.target.nextElementSibling;
+  showModal(event) {
+    event.preventDefault();
+    const modal = event.target.nextElementSibling;
     modal.classList.add("showing");
     modal.style.animation = "fadeIn 500ms forwards";
   }
@@ -152,7 +152,7 @@ class Ghibli {
       .catch((err) => console.warn(err));
   }
 
-  onScroll(e) {
+  onScroll(event) {
     const scrollTop = document.scrollingElement.scrollTop;
     const pageBottomPos = scrollTop + window.innerHeight;
     const frames = document.getElementsByClassName("heroFrame");
