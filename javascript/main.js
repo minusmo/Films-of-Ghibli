@@ -1,4 +1,5 @@
-const GHIBLI_API = "https://ghibliapi.herokuapp.com/films";
+"use strict";
+import { GHIBLI_API } from "./modules/ghibliApi.mjs";
 
 class Ghibli {
   constructor() {
@@ -42,7 +43,7 @@ class Ghibli {
 
     let closeButton = document.createElement("button");
     let closeImg = document.createElement("img");
-    closeImg.src = "./images/cross.svg";
+    closeImg.src = "../images/cross.svg";
 
     closeButton.classList.add("closeButton");
     closeButton.appendChild(closeImg);
