@@ -3,7 +3,7 @@ import { GHIBLI_API } from "./modules/ghibliApi.mjs";
 
 class Ghibli {
   constructor() {
-    this.root = document.getElementById("root");
+    this.root = document.getElementById("main-container");
     this.document = document;
     this.buildPage();
     this.document.addEventListener("scroll", this.onScroll);
