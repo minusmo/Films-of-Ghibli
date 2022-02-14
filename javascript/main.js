@@ -1,12 +1,13 @@
 "use strict";
 import { GHIBLI_API } from "./modules/ghibliApi.mjs";
+import { toggleVisibilityOnScroll } from "./modules/events.mjs";
 
 class Ghibli {
   constructor() {
     this.root = document.getElementById("main-container");
     this.document = document;
     this.buildPage();
-    this.document.addEventListener("scroll", this.onScroll);
+    this.document.addEventListener("scroll", toggleVisibilityOnScroll);
     this.createFrame = this.createFrame.bind(this);
   }
 
@@ -143,24 +144,7 @@ class Ghibli {
       .catch((err) => console.warn(err));
   }
 
-  onScroll(event) {
-    let scrollTop = document.scrollingElement.scrollTop;
-    let pageBottomPos = scrollTop + window.innerHeight;
-    let frames = document.getElementsByClassName("heroFrame");
-
-    for (let i = 0; i < frames.length; i++) {
-      let aFrame = frames[i];
-      let topPos = aFrame.offsetTop;
-
-      if (topPos < pageBottomPos) {
-        aFrame.classList.add("visible");
-        aFrame.firstElementChild.classList.add("visible");
-      } else {
-        aFrame.classList.remove("visible");
-        aFrame.firstElementChild.classList.remove("visible");
-      }
-    }
-  }
+  
 }
 
 window.ghibli = new Ghibli();
