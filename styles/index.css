@@ -24,7 +24,7 @@ ul {
   margin-top: 1em;
 }
 
-#root {
+#main-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
