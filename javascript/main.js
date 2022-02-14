@@ -117,36 +117,20 @@ class Ghibli {
       })
       .then((filmdata) => {
         filmdata.forEach((film, index) => {
-          switch (film.title) {
-            case "Grave of the Fireflies":
-              break;
-            case "Only Yesterday":
-              break;
-            case "Pom Poko":
-              break;
-            case "My Neighbors the Yamadas":
-              break;
-            default:
-              let heroFrame = this.makeHeroFrame();
-              heroFrame.id = index;
-
-              let imgFrame = document.createElement("div");
-              let img = document.createElement("img");
-              img.setAttribute("id", `${film.id}`);
-
-              let titleList = this.makeList(film);
-              let catalog = this.makeCatalog();
-
-              imgFrame.classList.add("filmFrame");
-              imgFrame.appendChild(img);
-              catalog.appendChild(titleList);
-              heroFrame.appendChild(catalog);
-              heroFrame.appendChild(imgFrame);
-
-              img.src = `${film.image}`;
-
-              this.root.appendChild(heroFrame);
-          }
+            let heroFrame = this.makeHeroFrame();
+            heroFrame.id = index;
+            let imgFrame = document.createElement("div");
+            let img = document.createElement("img");
+            img.setAttribute("id", `${film.id}`);
+            let titleList = this.makeList(film);
+            let catalog = this.makeCatalog();
+            imgFrame.classList.add("filmFrame");
+            imgFrame.appendChild(img);
+            catalog.appendChild(titleList);
+            heroFrame.appendChild(catalog);
+            heroFrame.appendChild(imgFrame);
+            img.src = `${film.image}`;
+            this.root.appendChild(heroFrame);
         });
       })
       .catch((err) => console.warn(err));
