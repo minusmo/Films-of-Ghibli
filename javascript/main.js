@@ -4,12 +4,14 @@ import { GHIBLI_API } from "./modules/ghibliApi.mjs";
 class Ghibli {
   constructor() {
     this.root = document.getElementById("root");
+    this.document = document;
     this.buildPage();
-    document.addEventListener("scroll", this.onScroll);
+    this.document.addEventListener("scroll", this.onScroll);
+    this.createFrame = this.createFrame.bind(this);
   }
 
   makeHeroFrame() {
-    const heroFrame = document.createElement("div");
+    let heroFrame = document.createElement("div");
     heroFrame.classList.add("heroFrame");
     return heroFrame;
   }
@@ -21,17 +23,17 @@ class Ghibli {
   }
 
   hideModal(event) {
-    event.preventDefault();
-    const modal = event.target.parentElement.parentElement;
+    let modal = event.target.parentElement.parentElement;
     modal.classList.remove("showing");
     modal.style.animation = "fadeOut 500ms forwards";
+    event.preventDefault();
   }
 
   showModal(event) {
-    event.preventDefault();
-    const modal = event.target.nextElementSibling;
+    let modal = event.target.nextElementSibling;
     modal.classList.add("showing");
     modal.style.animation = "fadeIn 500ms forwards";
+    event.preventDefault();
   }
 
   makeList(film) {
@@ -71,7 +73,7 @@ class Ghibli {
       listHead.classList.add("listHead");
       let listContent = document.createElement("li");
       listContent.classList.add("listContent");
-      const uppercaseKey = key.toUpperCase();
+      let uppercaseKey = key.toUpperCase();
       listHead.textContent = `${uppercaseKey}:`;
 
       if (key === "title" || key === "original_title") {
@@ -105,45 +107,50 @@ class Ghibli {
   }
 
   makeCatalog() {
-    const catalog = document.createElement("div");
+    let catalog = document.createElement("div");
     catalog.className = "catalog";
     return catalog;
   }
 
+  createFrame(film, index) {
+    let heroFrame = this.makeHeroFrame();
+
+    heroFrame.setAttribute("id", index);
+    let imgFrame = document.createElement("div");
+    let img = document.createElement("img");
+    img.setAttribute("id", `${film.id}`);
+    let titleList = this.makeList(film);
+    let catalog = this.makeCatalog();
+    imgFrame.classList.add("filmFrame");
+    imgFrame.appendChild(img);
+    catalog.appendChild(titleList);
+    heroFrame.appendChild(catalog);
+    heroFrame.appendChild(imgFrame);
+    img.src = `${film.image}`;
+
+    this.root.appendChild(heroFrame);
+  }
+
   buildPage() {
     fetch(GHIBLI_API)
-      .then((res) => {
-        return res.json();
+      .then((response) => {
+        let ghibliFilms = response.json();
+        return ghibliFilms;
       })
-      .then((filmdata) => {
-        filmdata.forEach((film, index) => {
-            let heroFrame = this.makeHeroFrame();
-            heroFrame.id = index;
-            let imgFrame = document.createElement("div");
-            let img = document.createElement("img");
-            img.setAttribute("id", `${film.id}`);
-            let titleList = this.makeList(film);
-            let catalog = this.makeCatalog();
-            imgFrame.classList.add("filmFrame");
-            imgFrame.appendChild(img);
-            catalog.appendChild(titleList);
-            heroFrame.appendChild(catalog);
-            heroFrame.appendChild(imgFrame);
-            img.src = `${film.image}`;
-            this.root.appendChild(heroFrame);
-        });
+      .then((ghibliFilms) => {
+        ghibliFilms.forEach(this.createFrame);
       })
       .catch((err) => console.warn(err));
   }
 
   onScroll(event) {
-    const scrollTop = document.scrollingElement.scrollTop;
-    const pageBottomPos = scrollTop + window.innerHeight;
-    const frames = document.getElementsByClassName("heroFrame");
+    let scrollTop = document.scrollingElement.scrollTop;
+    let pageBottomPos = scrollTop + window.innerHeight;
+    let frames = document.getElementsByClassName("heroFrame");
 
     for (let i = 0; i < frames.length; i++) {
-      const aFrame = frames[i];
-      const topPos = aFrame.offsetTop;
+      let aFrame = frames[i];
+      let topPos = aFrame.offsetTop;
 
       if (topPos < pageBottomPos) {
         aFrame.classList.add("visible");
