@@ -1,6 +1,6 @@
 "use strict";
 import { GHIBLI_API } from "./modules/ghibliApi.mjs";
-import { toggleVisibilityOnScroll } from "./modules/events.mjs";
+import { toggleVisibilityOnScroll, hideModalOnClick, showModalOnClick } from "./modules/eventHandlers.mjs";
 
 class Ghibli {
   constructor() {
@@ -23,20 +23,6 @@ class Ghibli {
     return filmFrame;
   }
 
-  hideModal(event) {
-    let modal = event.target.parentElement.parentElement;
-    modal.classList.remove("showing");
-    modal.style.animation = "fadeOut 500ms forwards";
-    event.preventDefault();
-  }
-
-  showModal(event) {
-    let modal = event.target.nextElementSibling;
-    modal.classList.add("showing");
-    modal.style.animation = "fadeIn 500ms forwards";
-    event.preventDefault();
-  }
-
   makeList(film) {
     let titleList = document.createElement("ul");
     titleList.classList.add("titleList");
@@ -50,7 +36,7 @@ class Ghibli {
 
     closeButton.classList.add("closeButton");
     closeButton.appendChild(closeImg);
-    closeImg.addEventListener("click", this.hideModal);
+    closeImg.addEventListener("click", hideModalOnClick);
     modal.appendChild(closeButton);
 
     let infoList = document.createElement("ul");
@@ -98,7 +84,7 @@ class Ghibli {
     let moreInfo = document.createElement("li");
     moreInfo.classList.add("moreInfo");
     moreInfo.textContent = "more info";
-    moreInfo.addEventListener("click", this.showModal);
+    moreInfo.addEventListener("click", showModalOnClick);
 
     titleList.appendChild(moreInfo);
     titleList.appendChild(modal);
