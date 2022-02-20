@@ -1,6 +1,20 @@
 "use strict";
 import { GHIBLI_API } from "./modules/ghibliApi.mjs";
-import { toggleVisibilityOnScroll, hideModalOnClick, showModalOnClick } from "./modules/eventHandlers.mjs";
+import {
+  toggleVisibilityOnScroll,
+  hideModalOnClick,
+  showModalOnClick,
+} from "./modules/eventHandlers.mjs";
+import {
+  makeHeroFrame,
+  makeFilmFrame,
+  makeCatalog,
+  makeImgFrame,
+  makeCloseButton,
+  makeModal,
+  makeUnorderedList,
+  makeList,
+} from "./modules/components.mjs";
 
 class Ghibli {
   constructor() {
@@ -11,73 +25,50 @@ class Ghibli {
     this.createFrame = this.createFrame.bind(this);
   }
 
-  makeHeroFrame() {
-    let heroFrame = document.createElement("div");
-    heroFrame.classList.add("heroFrame");
-    return heroFrame;
-  }
+  makeFilmInfo(filmInfo) {
+    let movieTitle = makeArticle("movieTitle");
+    let movieDetails = makeArticle("movieDetails");
+    let movieDetailsModal = makeModal();
 
-  makeFilmFrame() {
-    let filmFrame = document.createElement("div");
-    filmFrame.className = "filmFrame";
-    return filmFrame;
-  }
+    for (let [data, content] of Object.entries(filmInfo)) {
+      let notNeededData = [
+        "id",
+        "people",
+        "image",
+        "movie_banner",
+        "species",
+        "locations",
+        "vehicles",
+        "url",
+      ];
 
-  makeList(film) {
-    let titleList = document.createElement("ul");
-    titleList.classList.add("titleList");
-
-    let modal = document.createElement("div");
-    modal.classList.add("infoModal");
-
-    let closeButton = document.createElement("button");
-    let closeImg = document.createElement("img");
-    closeImg.src = "../images/cross.svg";
-
-    closeButton.classList.add("closeButton");
-    closeButton.appendChild(closeImg);
-    closeImg.addEventListener("click", hideModalOnClick);
-    modal.appendChild(closeButton);
-
-    let infoList = document.createElement("ul");
-    infoList.classList.add("infoList");
-
-    for (let [key, value] of Object.entries(film)) {
-      if (
-        key === "id" ||
-        key === "people" ||
-        key === "image" ||
-        key === "movie_banner" ||
-        key === "species" ||
-        key === "locations" ||
-        key === "vehicles" ||
-        key === "url"
-      ) {
+      if (notNeededData.includes(data)) {
         continue;
       }
 
-      let listHead = document.createElement("li");
-      listHead.classList.add("listHead");
-      let listContent = document.createElement("li");
-      listContent.classList.add("listContent");
-      let uppercaseKey = key.toUpperCase();
-      listHead.textContent = `${uppercaseKey}:`;
+      let listHead = makeList("listHead");
+      let listContent = makeList("listContent");
 
-      if (key === "title" || key === "original_title") {
-        listContent.textContent = `${value}`;
-        titleList.appendChild(listHead);
-        titleList.appendChild(listContent);
+      let heading = data.toUpperCase();
+      listHead.textContent = `${heading}:`;
+
+      if (data === "title" || data === "original_title") {
+        listContent.textContent = content;
+        movieTitle.appendChild(listHead);
+        movieTitle.appendChild(listContent);
       } else {
-        if (key === "description") {
+        if (data === "description") {
           listHead.className = "description";
-          let slicedDescription = value.slice(0, 150);
-          slicedDescription += "...";
-          listContent.textContent = slicedDescription;
+
+          let truncatedDescription = content.slice(0, 50);
+          truncatedDescription += "...";
+          listContent.textContent = truncatedDescription;
         } else {
-          listContent.textContent = `${value}`;
+          listContent.textContent = content;
         }
-        infoList.appendChild(listHead);
-        infoList.appendChild(listContent);
+
+        movieDetails.appendChild(listHead);
+        movieDetails.appendChild(listContent);
       }
     }
 
@@ -86,31 +77,29 @@ class Ghibli {
     moreInfo.textContent = "more info";
     moreInfo.addEventListener("click", showModalOnClick);
 
-    titleList.appendChild(moreInfo);
-    titleList.appendChild(modal);
-    modal.appendChild(infoList);
+    movieTitle.appendChild(moreInfo);
+    movieTitle.appendChild(modal);
+    movieDetailsModal.appendChild(movieDetails);
 
     return titleList;
   }
 
-  makeCatalog() {
-    let catalog = document.createElement("div");
-    catalog.className = "catalog";
-    return catalog;
-  }
-
   createFrame(film, index) {
-    let heroFrame = this.makeHeroFrame();
-
+    let heroFrame = makeHeroFrame();
     heroFrame.setAttribute("id", index);
-    let imgFrame = document.createElement("div");
+
     let img = document.createElement("img");
     img.setAttribute("id", `${film.id}`);
-    let titleList = this.makeList(film);
-    let catalog = this.makeCatalog();
-    imgFrame.classList.add("filmFrame");
+
+    let titleList = this.makeFilmInfo(film);
+
+    let catalog = makeCatalog();
+
+    let imgFrame = makeImgFrame();
     imgFrame.appendChild(img);
+
     catalog.appendChild(titleList);
+
     heroFrame.appendChild(catalog);
     heroFrame.appendChild(imgFrame);
     img.src = `${film.image}`;
@@ -129,8 +118,6 @@ class Ghibli {
       })
       .catch((err) => console.warn(err));
   }
-
-  
 }
 
 window.ghibli = new Ghibli();

@@ -1,3 +1,4 @@
+"use strict";
 function toggleVisibilityOnScroll(event) {
   let scrollTop = document.scrollingElement.scrollTop;
   let pageBottomPosition = scrollTop + window.innerHeight;
