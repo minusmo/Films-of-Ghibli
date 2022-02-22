@@ -84,7 +84,7 @@ class Ghibli {
     return titleList;
   }
 
-  createFrame(film, index) {
+  buildFrame(film, index) {
     let heroFrame = makeHeroFrame();
     heroFrame.setAttribute("id", index);
 
@@ -107,17 +107,25 @@ class Ghibli {
     this.root.appendChild(heroFrame);
   }
 
-  buildPage() {
-    fetch(GHIBLI_API)
-      .then((response) => {
+  async buildPage() {
+    try {
+      let ghibliFilms = await getGhibliFilms();
+      buildFrames(ghibliFilms);
+    }
+    catch(error) {
+      console.warn(error);
+      buildFallbackPage();
+    }
+    sendMessage();
+    function getGhibliFilms() {
+      return fetch(GHIBLI_API).then(response => {
         let ghibliFilms = response.json();
         return ghibliFilms;
-      })
-      .then((ghibliFilms) => {
-        ghibliFilms.forEach(this.createFrame);
-      })
-      .catch((err) => console.warn(err));
-  }
+      });
+    }
+    function buildFrames(ghibliFilms) {
+      ghibliFilms.forEach(this.buildFrame);
+    }
 }
 
 window.ghibli = new Ghibli();
