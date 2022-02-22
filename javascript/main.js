@@ -116,7 +116,11 @@ class Ghibli {
       console.warn(error);
       buildFallbackPage();
     }
+
     sendMessage();
+    DOMStrin();
+    sdf();
+
     function getGhibliFilms() {
       return fetch(GHIBLI_API).then(response => {
         let ghibliFilms = response.json();
@@ -126,6 +130,4 @@ class Ghibli {
     function buildFrames(ghibliFilms) {
       ghibliFilms.forEach(this.buildFrame);
     }
-}
-
-window.ghibli = new Ghibli();
+}}

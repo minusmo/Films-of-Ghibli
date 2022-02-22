@@ -1,5 +1,5 @@
 "use strict";
-function toggleVisibilityOnScroll(event) {
+function toggleVisibilityOnScroll() {
   let scrollTop = document.scrollingElement.scrollTop;
   let pageBottomPosition = scrollTop + window.innerHeight;
   let frames = document.getElementsByClassName("heroFrame");
