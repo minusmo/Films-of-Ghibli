@@ -1,5 +1,5 @@
 "use strict";
-import { GHIBLI_API } from "./modules/ghibliApi.mjs";
+import { GHIBLI_API } from "./modules/constants/ghibliApi.mjs";
 import {
   toggleVisibilityOnScroll,
   showModalOnClick,
