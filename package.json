@@ -1,6 +1,6 @@
 {
   "name": "ghibli-movie-showcase-",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "description": "A webpage introducing ghibli movies with html5, css3, javascript",
   "main": "app.js",
   "scripts": {

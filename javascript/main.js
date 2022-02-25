@@ -2,17 +2,13 @@
 import { GHIBLI_API } from "./modules/ghibliApi.mjs";
 import {
   toggleVisibilityOnScroll,
-  hideModalOnClick,
   showModalOnClick,
 } from "./modules/eventHandlers.mjs";
 import {
   makeHeroFrame,
-  makeFilmFrame,
   makeCatalog,
   makeImgFrame,
-  makeCloseButton,
   makeModal,
-  makeUnorderedList,
   makeList,
 } from "./modules/components.mjs";
 
@@ -117,10 +113,6 @@ class Ghibli {
       buildFallbackPage();
     }
 
-    sendMessage();
-    DOMStrin();
-    sdf();
-
     function getGhibliFilms() {
       return fetch(GHIBLI_API).then(response => {
         let ghibliFilms = response.json();
@@ -131,3 +123,5 @@ class Ghibli {
       ghibliFilms.forEach(this.buildFrame);
     }
 }}
+
+new Ghibli();
