@@ -1,6 +1,4 @@
 "use strict";
-import { suite, test } from "../node_modules/mocha/mocha.js";
-import * as chai from "../node_modules/chai/index.js";
 let expect = chai.expect;
 
 class Page {
