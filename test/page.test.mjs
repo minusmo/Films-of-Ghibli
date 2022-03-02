@@ -1,6 +1,6 @@
 "use strict";
-import { suite, test } from "mocha";
-import chai from "chai";
+import { suite, test } from "../node_modules/mocha/mocha.js";
+import * as chai from "../node_modules/chai/index.js";
 let expect = chai.expect;
 
 class Page {
@@ -8,26 +8,17 @@ class Page {
     this.header = header ? header : null;
     this.main = main ? main : null;
     this.footer = footer ? footer : null;
-    
   }
 
-  addHeader() {
+  addHeader() {}
 
-  }
+  addMain() {}
 
-  addMain() {
-
-  }
-
-  addFooter() {
-
-  }
+  addFooter() {}
 }
 
 class Header {
-  constructor() {
-
-  }
+  constructor() {}
 }
 
 suite("test Page instance property", function () {
@@ -48,5 +39,8 @@ suite("test Page instance property", function () {
 suite("test Header instance", function () {
   test("Header exists", function () {
     expect(new Header()).is.not.undefined;
+  });
+  test("Header is instance of htmlElement", function () {
+    expect(new Header()).is.instanceOf(new HTMLElement());
   });
 });
