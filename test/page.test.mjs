@@ -1,44 +1,91 @@
 "use strict";
+/*global suite, test, chai*/
 let expect = chai.expect;
 
 class Page {
-  constructor(header, main, footer) {
-    this.header = header ? header : null;
-    this.main = main ? main : null;
-    this.footer = footer ? footer : null;
+  constructor() {
+    this.page = document;
   }
 
-  addHeader() {}
+  header() {
+    let pageHeader = this.page.createElement("header");
+    pageHeader.setAttribute("id", "page-header");
+    return pageHeader;
+  }
 
-  addMain() {}
+  main() {
+    let pageMain = this.page.createElement("main");
+    pageMain.setAttribute("id", "page-main");
+    return pageMain;
+  }
 
-  addFooter() {}
+  footer() {
+    let pageFooter = this.page.createElement("footer");
+    pageFooter.setAttribute("id", "page-footer");
+    return pageFooter;
+  }
 }
 
-class Header {
-  constructor() {}
+class Title {
+  title() {
+    let pageTitle = document.createElement("h1");
+    pageTitle.setAttribute("id", "page-title");
+    return pageTitle;
+  }
 }
 
-suite("test Page instance property", function () {
-  test("Page exists", function () {
-    expect(new Page()).is.not.undefined;
+class Button {
+  themeButton() {
+    let themeButton = document.createElement("button");
+    themeButton.setAttribute("id", "theme-button");
+    return themeButton;
+  }
+
+  movieListToggleButton() {
+    let movieListToggleButton = document.createElement("button");
+    movieListToggleButton.setAttribute("id", "movieListToggle-button");
+    return movieListToggleButton;
+  }
+}
+
+suite("test PageHeader", function () {
+  test("PageHeader is header element", function () {
+    expect(new Page().header().tagName).equals("HEADER");
   });
-  test("Page instance has header", function () {
-    expect(new Page("header")).to.has.property("header");
+  test("PageHeader has pageTitle", function () {
+    let page = new Page();
+    let title = new Title();
+    let pageHeader = page.header();
+    let pageTitle = title.title();
+    pageHeader.appendChild(pageTitle);
+    expect(pageHeader.contains(pageTitle)).equals(true);
   });
-  test("Page instance has main", function () {
-    expect(new Page("header", "main")).to.has.property("main");
+  test("PageHeader has themeButton", function () {
+    let page = new Page();
+    let button = new Button();
+    let pageHeader = page.header();
+    let themeButton = button.themeButton();
+    pageHeader.appendChild(themeButton);
+    expect(pageHeader.contains(themeButton)).equals(true);
   });
-  test("Page instance has footer", function () {
-    expect(new Page("header", "main", "footer")).to.has.property("footer");
+  test("PageHeader has movieListToggleButton", function () {
+    let page = new Page();
+    let button = new Button();
+    let pageHeader = page.header();
+    let movieListToggleButton = button.movieListToggleButton();
+    pageHeader.appendChild(movieListToggleButton);
+    expect(pageHeader.contains(movieListToggleButton)).equals(true);
   });
 });
 
-suite("test Header instance", function () {
-  test("Header exists", function () {
-    expect(new Header()).is.not.undefined;
+suite("test PageMain", function () {
+  test("PageMain is main element", function () {
+    expect(new Page().main().tagName).equals("MAIN");
   });
-  test("Header is instance of htmlElement", function () {
-    expect(new Header()).is.instanceOf(new HTMLElement());
+});
+
+suite("test PageFooter", function () {
+  test("PageFooter is footer element", function () {
+    expect(new Page().footer().tagName).equals("FOOTER");
   });
 });
