@@ -1,65 +1,74 @@
 "use strict";
-import { hideModalOnClick } from "./eventHandlers.mjs";
+import { EventHandlers } from "./eventHandlers.mjs";
 
-function makeHeroFrame() {
-  let heroFrame = document.createElement("section");
-  heroFrame.classList.add("heroFrame");
-  return heroFrame;
+class Page {
+  constructor() {
+    this.page = document;
+  }
+
+  header() {
+    let pageHeader = this.page.createElement("header");
+    pageHeader.setAttribute("id", "page-header");
+    return pageHeader;
+  }
+
+  main() {
+    let pageMain = this.page.createElement("main");
+    pageMain.setAttribute("id", "page-main");
+    return pageMain;
+  }
+
+  footer() {
+    let pageFooter = this.page.createElement("footer");
+    pageFooter.setAttribute("id", "page-footer");
+    return pageFooter;
+  }
 }
 
-function makeFilmFrame() {
-  let filmFrame = document.createElement("div");
-  filmFrame.className = "filmFrame";
-  return filmFrame;
-}
+class Button {
+  themeButton() {
+    let themeButton = document.createElement("button");
+    themeButton.setAttribute("id", "theme-button");
+    return themeButton;
+  }
 
-function makeCatalog() {
-  let catalog = document.createElement("article");
-  catalog.className = "catalog";
-  return catalog;
-}
+  movieListToggleButton() {
+    let movieListToggleButton = document.createElement("button");
+    movieListToggleButton.setAttribute("id", "movieListToggle-button");
+    return movieListToggleButton;
+  }
 
-function makeImgFrame() {
-    let imgFrame = document.createElement("div");
-    imgFrame.classList.add("filmFrame");
-    return imgFrame;
-}
-
-function makeModal() {
-    let modal = document.createElement("div");
-    modal.classList.add("infoModal");
-
-    let closeButton = makeCloseButton();
-    modal.appendChild(closeButton);
-    return modal;
-}
-
-function makeCloseButton() {
+  closeButton() {
     let closeButton = document.createElement("button");
-    let closeIcon = makeCloseIcon();
-    
+    let closeIcon = this.closeIcon();
+
     closeButton.classList.add("closeButton");
     closeButton.appendChild(closeIcon);
-    closeIcon.addEventListener("click", hideModalOnClick);
+    closeIcon.addEventListener("click", new EventHandlers().hideModalOnClick);
     return closeButton;
-}
+  }
 
-function makeCloseIcon() {
+  closeIcon() {
     let closeIcon = document.createElement("img");
-    closeIcon.src = "../images/cross.svg";
+    closeIcon.src = "../../images/cross.svg";
     return closeIcon;
+  }
 }
 
-function makeUnorderedList(className) {
-  let unorderedList = document.createElement("ul");
-  unorderedList.classList.add(className ? className : '');
-  return unorderedList;
+class TextElement {
+  title(textContent, id) {
+    let pageTitle = document.createElement("h1");
+    if (id) pageTitle.setAttribute("id", id);
+    if (textContent) pageTitle.textContent = textContent;
+    return pageTitle;
+  }
+
+  paragraph(textContent, id) {
+    let paragraph = document.createElement("p");
+    if (id) paragraph.setAttribute("id", id);
+    if (textContent) paragraph.textContent = textContent;
+    return paragraph;
+  }
 }
 
-function makeList(className) {
-  let list = document.createElement("li");
-  list.classList.add(className);
-  return list;
-}
-
-export { makeHeroFrame, makeFilmFrame, makeCatalog, makeImgFrame, makeCloseButton, makeModal, makeUnorderedList, makeList };
+export { Page, Button, TextElement };
