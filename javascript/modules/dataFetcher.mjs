@@ -1,3 +1,4 @@
+"use strict";
 import { GHIBLI_API } from "../constants/ghibliApi.mjs";
 
 function getGhibliFilms() {
