@@ -1,6 +1,6 @@
 "use strict";
 
-class MovieCard extends HTMLDivElement {
+class MovieCard extends HTMLElement {
   constructor(posterUrl, movieTitle) {
     super();
 
@@ -8,18 +8,31 @@ class MovieCard extends HTMLDivElement {
     shadowRoot.innerHTML = `
         <style>
           :host {
+            padding: var(--box-padding);
+            border-radius: var(--box-padding);
+            box-shadow: var(--box-shadow);
+            background-image: url(${posterUrl});
             background-repeat: no-repeat;
             background-size: cover;
           }
           #title-banner {
             text-decoration: underline;
             font-weight: bold;
+            max-inline-width: 20ch;
+            color: var(--light-font-color);
+            margin-top: 100%;
+          }
+
+          @media (max-width: 75em) {
+            :host {
+              flex-shrink: 0;
+              flex-basis: 15em;
+              scroll-snap-align: start;
+            }
           }
         </style>
-      `;
-    this.style.backgroundImage = posterUrl;
+    `;
     shadowRoot.appendChild(this.titleBanner(movieTitle));
-
     this.addEventListener("click", this.openInfoCard);
   }
 
@@ -31,11 +44,11 @@ class MovieCard extends HTMLDivElement {
   }
 
   openInfoCard() {
-    let infoCard = this.firstChild();
+    let infoCard = this.firstChild;
     infoCard.setAttribute("hidden", false);
   }
 }
-customElements.define("movie-card", MovieCard, { extends: "div" });
+customElements.define("movie-card", MovieCard);
 
 class InfoCard extends HTMLElement {
   constructor(filmData) {

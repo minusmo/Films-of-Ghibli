@@ -1,3 +1,19 @@
+html {
+  font-size: clamp(0.5rem, 0.75rem + 1vw, 2rem);
+  --light-font-color: white;
+  --box-padding: .5rem;
+  --box-shadow: .5rem;
+}
+
+* {
+  border: 1px solid orange;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .body::-webkit-scrollbar {
   display: none;
@@ -7,4 +23,50 @@
 .body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+#page-header {
+  display: grid;
+  grid-template-columns: 1fr minmax(100px, 25%);
+}
+
+#page-title {
+  font-size: 1.25rem;
+  padding: var(--box-padding);
+}
+
+#page-main {
+  padding: var(--box-padding);
+  min-block-size: calc(100vh - 8em);
+}
+
+@media (max-width: 75em) {
+  #page-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-inline: auto;
+    scroll-snap-type: inline mandatory;
+    scroll-behavior: smooth;
+  }
+
+}
+
+@media (min-width: 75em) {
+  #page-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    grid-gap: var(--box-padding);
+  }
+}
+
+
+#page-footer {
+  text-align: center;
+  padding: var(--box-padding);
+}
+
+#content-info,
+#author-info {
+  font-size: 0.7rem;
 }
