@@ -1,12 +1,12 @@
 html {
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(0.5rem, 0.75rem + 1vw, 2rem);
   --light-font-color: white;
-  --box-padding: .5rem;
-  --box-shadow: .5rem;
-}
-
-* {
-  border: 1px solid orange;
+  --box-padding: 0.5rem;
+  --box-shadow: 0.5rem;
+  --page-header-background: #74bdcb;
+  --page-main-background: #e7f2f8;
+  --page-footer-background: #ffa384;
 }
 
 body {
@@ -26,8 +26,7 @@ body {
 }
 
 #page-header {
-  display: grid;
-  grid-template-columns: 1fr minmax(100px, 25%);
+  background-color: var(--page-header-background);
 }
 
 #page-title {
@@ -38,32 +37,32 @@ body {
 #page-main {
   padding: var(--box-padding);
   min-block-size: calc(100vh - 8em);
+  background-color: var(--page-main-background);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
 }
 
-@media (max-width: 75em) {
-  #page-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-inline: auto;
-    scroll-snap-type: inline mandatory;
-    scroll-behavior: smooth;
-  }
-
+.info-card.showing {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #efe7bc;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-@media (min-width: 75em) {
-  #page-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    grid-gap: var(--box-padding);
-  }
-}
-
 
 #page-footer {
   text-align: center;
   padding: var(--box-padding);
+  background-color: var(--page-footer-background);
 }
 
 #content-info,

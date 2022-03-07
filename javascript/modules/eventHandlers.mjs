@@ -19,20 +19,6 @@ class EventHandlers {
       }
     }
   }
-
-  hideModalOnClick(event) {
-    let modal = event.target.parentElement.parentElement;
-    modal.classList.remove("showing");
-    modal.style.animation = "fadeOut 500ms forwards";
-    event.preventDefault();
-  }
-
-  showModalOnClick(event) {
-    let modal = event.target.nextElementSibling;
-    modal.classList.add("showing");
-    modal.style.animation = "fadeIn 500ms forwards";
-    event.preventDefault();
-  }
 }
 
 export { EventHandlers };

@@ -1,8 +1,8 @@
 "use strict";
-import { Page, Button, TextElement } from "./modules/components.mjs";
+import { Page, TextElement } from "./modules/components.mjs";
 import { MovieCard, InfoCard } from "./modules/webComponents.mjs";
 import { EventHandlers } from "./modules/eventHandlers.mjs";
-import { getGhibliFilms } from "./modules/dataFetcher.mjs";
+import { fetchGhibliFilms } from "./modules/dataFetcher.mjs";
 
 class HtmlBody {
   constructor() {
@@ -25,7 +25,7 @@ class HtmlBody {
     this.buildFooter(page);
 
     try {
-      let { ghibliFilms } = await getGhibliFilms();
+      let { ghibliFilms } = await fetchGhibliFilms();
       await this.addMovieCards(ghibliFilms);
     } catch (error) {
       console.warn(error);
@@ -37,12 +37,8 @@ class HtmlBody {
   buildHeader(page) {
     let pageHeader = page.header();
     let textElement = new TextElement();
-    let button = new Button();
-    let themeButton = button.themeButton();
     let pageTitle = textElement.title("Films of Ghibli", "page-title");
-
     pageHeader.appendChild(pageTitle);
-    pageHeader.appendChild(themeButton);
     this.pageHeader = pageHeader;
     this.htmlBody.appendChild(pageHeader);
   }
@@ -76,13 +72,14 @@ class HtmlBody {
 
   async addMovieCards(ghilbliFilms) {
     let films = await ghilbliFilms;
-    console.log(films);
+
     for (let film of films) {
       let movieCard = new MovieCard(film.image, film.title);
       let infoCard = new InfoCard(film);
-      movieCard.appendChild(infoCard);
+      infoCard.classList.add("info-card");
       let pageMain = document.querySelector("#page-main");
       pageMain.appendChild(movieCard);
+      pageMain.appendChild(infoCard);
     }
   }
 
