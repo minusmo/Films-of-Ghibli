@@ -1,21 +1,12 @@
 "use strict";
-import { Page, TextElement } from "./modules/components.mjs";
-import { MovieCard, InfoCard } from "./modules/webComponents.mjs";
-import { EventHandlers } from "./modules/eventHandlers.mjs";
-import { fetchGhibliFilms } from "./modules/dataFetcher.mjs";
+import { Page, TextElement } from "./modules/components/components.mjs";
+import { MovieCard, InfoCard } from "./modules/components/webComponents.mjs";
+import { fetchGhibliFilms } from "./modules/asyncFunctions/dataFetcher.mjs";
 
 class HtmlBody {
   constructor() {
     this.htmlBody = document.body;
-    this.addScrollEvent();
     this.buildPage();
-  }
-
-  addScrollEvent() {
-    document.addEventListener(
-      "scroll",
-      new EventHandlers().toggleVisibilityOnScroll
-    );
   }
 
   async buildPage() {

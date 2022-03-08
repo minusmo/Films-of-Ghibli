@@ -4,7 +4,7 @@ import {
   Page,
   Button,
   TextElement,
-} from "../javascript/modules/components.mjs";
+} from "../src/javascript/modules/components/components.mjs";
 let expect = chai.expect;
 
 suite("test PageHeader", function () {

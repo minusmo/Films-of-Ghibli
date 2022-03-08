@@ -1,6 +1,6 @@
 "use strict";
 /*global suite, test, chai*/
-import { getGhibliFilms } from "../javascript/modules/dataFetcher.mjs";
+import { getGhibliFilms } from "../src/javascript/modules/asyncFuntions/dataFetcher.mjs";
 
 let expect = chai.expect;
 suite("test studio ghibli film api", function () {

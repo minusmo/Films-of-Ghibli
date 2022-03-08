@@ -108,6 +108,7 @@ class InfoCard extends HTMLElement {
             position: absolute;
             top: var(--box-padding);
             left: var(--box-padding);
+            cursor: pointer;
           }
         </style>
     `;

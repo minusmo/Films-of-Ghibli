@@ -1,5 +1,4 @@
 "use strict";
-import { EventHandlers } from "./eventHandlers.mjs";
 
 class Page {
   constructor() {
@@ -44,7 +43,6 @@ class Button {
 
     closeButton.classList.add("closeButton");
     closeButton.appendChild(closeIcon);
-    closeIcon.addEventListener("click", new EventHandlers().hideModalOnClick);
     return closeButton;
   }
 

@@ -1,6 +1,9 @@
 "use strict";
 /*global suite, test, chai*/
-import { MovieCard, InfoCard } from "../javascript/modules/webComponents.mjs";
+import {
+  MovieCard,
+  InfoCard,
+} from "../src/javascript/modules/components/webComponents.mjs";
 let expect = chai.expect;
 
 suite("test MovieCard component", function () {
