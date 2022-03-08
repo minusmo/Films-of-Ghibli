@@ -101,7 +101,7 @@ class InfoCard extends HTMLElement {
             margin-right: .5rem;
           }
           .closeButton {
-            width: 15px;
+            min-width: 15px;
             border: none;
             padding: 0;
             background: transparent;

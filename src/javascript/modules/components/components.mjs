@@ -48,7 +48,7 @@ class Button {
 
   closeIcon() {
     let closeIcon = document.createElement("img");
-    closeIcon.src = "../../images/cross.svg";
+    closeIcon.setAttribute("src", "./src/images/cross.svg");
     return closeIcon;
   }
 }
