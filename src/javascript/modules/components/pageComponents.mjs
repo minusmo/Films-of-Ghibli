@@ -1,85 +1,49 @@
 "use strict";
-import { Page, TextElement } from "./modules/components/components.mjs";
+import { Page, TextElement } from "./components.mjs";
 import { MovieCard, InfoCard } from "./webComponents.mjs";
-import { fetchGhibliFilms } from "../asyncFunctions/dataFetcher.mjs";
 
 class PageBody {
   constructor() {
     this.htmlBody = document.body;
-    this.buildPage();
   }
 
-  async buildPage() {
-    let page = new Page();
-    this.buildHeader(page);
-    this.buildMain(page);
-    this.buildFooter(page);
-
-    try {
-      let { ghibliFilms } = await fetchGhibliFilms();
-      await this.addMovieCards(ghibliFilms);
-    } catch (error) {
-      console.warn(error);
-      let fallbackPage = this.buildFallbackPage();
-      this.showFallbackPage(fallbackPage);
-    }
+  addPageHeader(pageHeader) {
+    this.htmlBody.appendChild(pageHeader);
   }
 
-  async addMovieCards(ghilbliFilms) {
-    let films = await ghilbliFilms;
-
-    for (let film of films) {
-      let movieCard = new MovieCard(film.image, film.title);
-      let infoCard = new InfoCard(film);
-      infoCard.classList.add("info-card");
-      let pageMain = document.querySelector("#page-main");
-      pageMain.appendChild(movieCard);
-      pageMain.appendChild(infoCard);
-    }
+  addPageMain(pageMain) {
+    this.htmlBody.appendChild(pageMain);
   }
 
-  buildFallbackPage() {
-    let fallbackPage = document.createElement("main");
-    fallbackPage.setAttribute("id", "fallback-main");
-
-    let fallbackMessage = document.createElement("h1");
-    fallbackMessage.setAttribute("id", "fallback-heading");
-    fallbackMessage.textContent = "Sorry! Something went Wrong!";
-
-    fallbackPage.appendChild(fallbackMessage);
-    return fallbackPage;
-  }
-
-  showFallbackPage(fallbackPage) {
-    let pageMain = document.querySelector("#page-main");
-    pageMain.replaceWith(fallbackPage);
+  addPageFooter(pageFooter) {
+    this.htmlBody.appendChild(pageFooter);
   }
 }
 
 class PageHeader {
   constructor() {
-    let page = new Page();
-    let pageHeader = page.header();
-    let textElement = new TextElement();
-    let pageTitle = textElement.title("Films of Ghibli", "page-title");
+    let pageHeader = Page.header();
+    let pageTitle = TextElement.title("Films of Ghibli", "page-title");
     pageHeader.appendChild(pageTitle);
-    this.htmlBody.appendChild(pageHeader);
+    this.pageHeader = pageHeader;
+  }
+
+  getPageHeader() {
+    return this.pageHeader;
   }
 }
 
 class PageFooter {
   constructor() {
-    let page = new Page();
-    let textElement = new TextElement();
-    let pageFooter = page.footer();
+    let pageFooter = Page.footer();
 
-    let contentInfo = textElement.paragraph(
+    let contentInfo = TextElement.paragraph(
       "Powered by Studio Ghibli and janaipakos",
       "content-info"
     );
 
-    let authorInfo = textElement.paragraph(
-      "Designed and Developed by Hojoon Eum",
+    let authorInfo = TextElement.paragraph(
+      "Designed and developed by Hojoon Eum",
       "author-info"
     );
 
@@ -95,10 +59,41 @@ class PageFooter {
 }
 
 class PageMain {
-  constructor() {
-    let pageMain = page.main();
+  constructor(mainData) {
+    let pageMain = Page.main("page-main");
     this.pageMain = pageMain;
-    this.htmlBody.appendChild(pageMain);
+    this.buildMain(mainData);
+  }
+
+  async buildMain(mainData) {
+    if (mainData) {
+      await this.addMovieCards(mainData);
+    } else {
+      this.buildFallbackMain();
+    }
+  }
+
+  getPageMain() {
+    return this.pageMain;
+  }
+
+  async addMovieCards(ghibliFilms) {
+    let films = await ghibliFilms;
+    for (let film of films) {
+      let movieCard = new MovieCard(film.image, film.title);
+      let infoCard = new InfoCard(film);
+      this.pageMain.appendChild(movieCard);
+      this.pageMain.appendChild(infoCard);
+    }
+  }
+
+  buildFallbackMain() {
+    this.pageMain.setAttribute("id", "fallback-main");
+    let fallbackMessage = TextElement.title(
+      "Sorry! Something went Wrong!",
+      "fallback-heading"
+    );
+    this.pageMain.appendChild(fallbackMessage);
   }
 }
 
