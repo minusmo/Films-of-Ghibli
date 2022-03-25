@@ -70,3 +70,7 @@ body {
 #author-info {
   font-size: 0.7rem;
 }
+
+#fallback-heading {
+  text-align: center;
+}
