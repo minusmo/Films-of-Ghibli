@@ -1,43 +1,39 @@
 "use strict";
 
 class Page {
-  constructor() {
-    this.page = document;
-  }
-
-  header() {
-    let pageHeader = this.page.createElement("header");
+  static header() {
+    let pageHeader = document.createElement("header");
     pageHeader.setAttribute("id", "page-header");
     return pageHeader;
   }
 
-  main() {
-    let pageMain = this.page.createElement("main");
-    pageMain.setAttribute("id", "page-main");
+  static main(id) {
+    let pageMain = document.createElement("main");
+    pageMain.setAttribute("id", id);
     return pageMain;
   }
 
-  footer() {
-    let pageFooter = this.page.createElement("footer");
+  static footer() {
+    let pageFooter = document.createElement("footer");
     pageFooter.setAttribute("id", "page-footer");
     return pageFooter;
   }
 }
 
 class Button {
-  themeButton() {
+  static themeButton() {
     let themeButton = document.createElement("button");
     themeButton.setAttribute("id", "theme-button");
     return themeButton;
   }
 
-  movieListToggleButton() {
+  static movieListToggleButton() {
     let movieListToggleButton = document.createElement("button");
     movieListToggleButton.setAttribute("id", "movieListToggle-button");
     return movieListToggleButton;
   }
 
-  closeButton() {
+  static closeButton() {
     let closeButton = document.createElement("button");
     let closeIcon = this.closeIcon();
 
@@ -46,7 +42,7 @@ class Button {
     return closeButton;
   }
 
-  closeIcon() {
+  static closeIcon() {
     let closeIcon = document.createElement("img");
     closeIcon.setAttribute("src", "./src/images/cross.svg");
     return closeIcon;
@@ -54,14 +50,14 @@ class Button {
 }
 
 class TextElement {
-  title(textContent, id) {
+  static title(textContent, id) {
     let pageTitle = document.createElement("h1");
     if (id) pageTitle.setAttribute("id", id);
     if (textContent) pageTitle.textContent = textContent;
     return pageTitle;
   }
 
-  paragraph(textContent, id) {
+  static paragraph(textContent, id) {
     let paragraph = document.createElement("p");
     if (id) paragraph.setAttribute("id", id);
     if (textContent) paragraph.textContent = textContent;
