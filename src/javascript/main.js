@@ -5,17 +5,18 @@ import {
   PageMain,
   PageFooter,
 } from "./modules/components/pageComponents.mjs";
+import { getMainData } from "./modules/asyncFunctions/dataFetcher.mjs";
 
-function main() {
-  let dataMain = getDataMain();
-  renderPage(dataMain);
+async function main() {
+  let { ghibliFilms: mainData } = await getMainData();
+  renderPage(mainData);
 }
 
-function renderPage(dataMain) {
+function renderPage(mainData) {
   let pageBody = new PageBody();
-  let pageHeader = new PageHeader();
-  let pageMain = new PageMain(dataMain);
-  let pageFooter = new PageFooter();
+  let pageHeader = new PageHeader().getPageHeader();
+  let pageMain = new PageMain(mainData).getPageMain();
+  let pageFooter = new PageFooter().getPageFooter();
   pageBody.addPageHeader(pageHeader);
   pageBody.addPageMain(pageMain);
   pageBody.addPageFooter(pageFooter);
