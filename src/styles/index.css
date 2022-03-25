@@ -71,6 +71,9 @@ body {
   font-size: 0.7rem;
 }
 
-#fallback-heading {
-  text-align: center;
+#fallback-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

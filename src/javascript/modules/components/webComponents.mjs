@@ -82,6 +82,11 @@ class InfoCard extends HTMLElement {
             box-shadow: 5px 5px 10px lightgrey;
             border: 5px solid black;
           }
+          @media (min-width: 1000px) {
+            #banner-img {
+              max-width: 60%;
+            } 
+          }
           #detail-article {
             max-width: 100%;
             flex-basis: auto;
@@ -89,6 +94,11 @@ class InfoCard extends HTMLElement {
 		        flex-grow: 1;
 		        padding: 1rem;
             line-height: .7;
+          }
+          @media (max-width: 550px) {
+            #detail-article {
+              align-self: stretch;
+            }
           }
           .label {
             font-size: 1rem;
@@ -119,11 +129,12 @@ class InfoCard extends HTMLElement {
       );
       shadowRoot.appendChild(this.detailArticle(filmData));
     }
+    this.classList.add("info-card");
     this.hidden = true;
   }
 
   closeButton() {
-    let closeButton = new Button().closeButton();
+    let closeButton = Button.closeButton();
     let infocard = this;
     closeButton.addEventListener("click", function () {
       infocard.classList.remove("showing");
