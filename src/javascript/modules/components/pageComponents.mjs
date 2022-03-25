@@ -25,42 +25,6 @@ class PageBody {
     }
   }
 
-  buildHeader(page) {
-    let pageHeader = page.header();
-    let textElement = new TextElement();
-    let pageTitle = textElement.title("Films of Ghibli", "page-title");
-    pageHeader.appendChild(pageTitle);
-    this.pageHeader = pageHeader;
-    this.htmlBody.appendChild(pageHeader);
-  }
-
-  buildMain(page) {
-    let pageMain = page.main();
-    this.pageMain = pageMain;
-    this.htmlBody.appendChild(pageMain);
-  }
-
-  buildFooter(page) {
-    let textElement = new TextElement();
-    let pageFooter = page.footer();
-
-    let contentInfo = textElement.paragraph(
-      "Powered by Studio Ghibli and janaipakos",
-      "content-info"
-    );
-
-    let authorInfo = textElement.paragraph(
-      "Designed and Developed by Hojoon Eum",
-      "author-info"
-    );
-
-    pageFooter.appendChild(contentInfo);
-    pageFooter.appendChild(authorInfo);
-
-    this.pageFooter = pageFooter;
-    this.htmlBody.appendChild(pageFooter);
-  }
-
   async addMovieCards(ghilbliFilms) {
     let films = await ghilbliFilms;
 
@@ -93,47 +57,49 @@ class PageBody {
 }
 
 class PageHeader {
-    constructor() {
-      let page = new Page();
-      let pageHeader = page.header();
-      let textElement = new TextElement();
-      let pageTitle = textElement.title("Films of Ghibli", "page-title");
-      pageHeader.appendChild(pageTitle);
-      this.htmlBody.appendChild(pageHeader);
-    }
+  constructor() {
+    let page = new Page();
+    let pageHeader = page.header();
+    let textElement = new TextElement();
+    let pageTitle = textElement.title("Films of Ghibli", "page-title");
+    pageHeader.appendChild(pageTitle);
+    this.htmlBody.appendChild(pageHeader);
   }
-  
-  class PageFooter {
-    constructor() {
-      let page = new Page();
-      let textElement = new TextElement();
-      let pageFooter = page.footer();
-  
-      let contentInfo = textElement.paragraph(
-        "Powered by Studio Ghibli and janaipakos",
-        "content-info"
-      );
-  
-      let authorInfo = textElement.paragraph(
-        "Designed and Developed by Hojoon Eum",
-        "author-info"
-      );
-  
-      pageFooter.appendChild(contentInfo);
-      pageFooter.appendChild(authorInfo);
-  
-      this.pageFooter = pageFooter;
-    }
-  
-    getPageFooter() {
-      return this.pageFooter;
-    }
+}
+
+class PageFooter {
+  constructor() {
+    let page = new Page();
+    let textElement = new TextElement();
+    let pageFooter = page.footer();
+
+    let contentInfo = textElement.paragraph(
+      "Powered by Studio Ghibli and janaipakos",
+      "content-info"
+    );
+
+    let authorInfo = textElement.paragraph(
+      "Designed and Developed by Hojoon Eum",
+      "author-info"
+    );
+
+    pageFooter.appendChild(contentInfo);
+    pageFooter.appendChild(authorInfo);
+
+    this.pageFooter = pageFooter;
   }
-  
-  class PageMain {
-    constructor() {
-      
-    }
+
+  getPageFooter() {
+    return this.pageFooter;
   }
+}
+
+class PageMain {
+  constructor() {
+    let pageMain = page.main();
+    this.pageMain = pageMain;
+    this.htmlBody.appendChild(pageMain);
+  }
+}
 
 export { PageBody, PageHeader, PageMain, PageFooter };
