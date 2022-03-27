@@ -9,17 +9,14 @@ class MovieCard extends HTMLElement {
     shadowRoot.innerHTML = `
         <style>
           :host {
-            box-shadow: 5px 5px 10px lightgrey;
+            box-shadow: 0px 5px 10px lightgrey;
             display: flex;
             flex-direction: column;
             flex: 1;
-            flex-basis: auto;
+            flex-basis: 30%;
             flex-shrink: 1;
-            flex-grow: 1;
+            flex-grow: 0;
             cursor: pointer;
-          }
-          :host:hover {
-            background-color: white;
           }
           #poster-img {
             width: 100%;
@@ -27,7 +24,6 @@ class MovieCard extends HTMLElement {
           }
           #title-banner {
             flex: 1;
-            text-decoration: underline;
             font-weight: bold;
             max-inline-width: 20ch;
             color: black;

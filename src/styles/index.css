@@ -27,18 +27,18 @@ body {
 }
 
 #page-header {
-  background-color: var(--page-header-background);
+  box-shadow: 5px 0px 10px darkslategray;
 }
 
 #page-title {
-  font-size: 1.25rem;
+  font-size: 0.7rem;
+  font-weight: bolder;
   padding: var(--box-padding);
 }
 
 #page-main {
   padding: var(--box-padding);
   min-block-size: calc(100vh - 8em);
-  background-color: var(--page-main-background);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -63,12 +63,13 @@ body {
 #page-footer {
   text-align: center;
   padding: var(--box-padding);
-  background-color: var(--page-footer-background);
+  box-shadow: -5px 0px 10px darkslategray;
 }
 
 #content-info,
 #author-info {
-  font-size: 0.7rem;
+  font-size: 0.5rem;
+  font-weight: bolder;
 }
 
 #fallback-main {
