@@ -77,9 +77,8 @@ class PageMain {
     return this.pageMain;
   }
 
-  async addMovieCards(ghibliFilms) {
-    let films = await ghibliFilms;
-    for (let film of films) {
+  addMovieCards(ghibliFilms) {
+    for (let film of ghibliFilms) {
       let movieCard = new MovieCard(film.image, film.title);
       let infoCard = new InfoCard(film);
       this.pageMain.appendChild(movieCard);

@@ -8,8 +8,8 @@ import {
 import { getMainData } from "./modules/asyncFunctions/dataFetcher.mjs";
 
 async function main() {
-  let { ghibliFilms: mainData } = await getMainData();
-  renderPage(mainData);
+  let ghibliFilms = await getMainData();
+  renderPage(ghibliFilms);
 }
 
 function renderPage(mainData) {

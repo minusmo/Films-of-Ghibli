@@ -3,15 +3,8 @@ import { GHIBLI_API } from "../constants/ghibliApi.mjs";
 
 async function getMainData() {
   try {
-    let { ghibliFilms } = await fetch(GHIBLI_API).then(
-      function (response) {
-        let ghibliFilms = response.json();
-        let responseProperly = response.ok;
-        return { ghibliFilms, responseProperly };
-      }
-    );
-
-    return { ghibliFilms };
+    let ghiblifilms = await fetch(GHIBLI_API);
+    return ghiblifilms.json();
   } catch (error) {
     console.warn(error);
     return null;
