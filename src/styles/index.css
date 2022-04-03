@@ -45,6 +45,11 @@ body {
   grid-gap: 1rem;
 }
 
+movie-card:is(:hover) {
+  transform: translateY(-10px);
+  transition: transform 200ms ease;
+}
+
 .info-card.showing {
   display: flex;
   position: fixed;

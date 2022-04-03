@@ -18,10 +18,6 @@ class MovieCard extends HTMLElement {
             flex-grow: 0;
             cursor: pointer;
           }
-          :host:is(:hover) {
-            transform: translateY(-10px);
-            transition: transform 150ms ease-in;
-          }
           #poster-img {
             width: 100%;
             flex: 4;
