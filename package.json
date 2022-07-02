@@ -1,6 +1,6 @@
 {
-  "name": "ghibli-movie-showcase-",
-  "version": "2.2.0",
+  "name": "Films-of-Ghibli",
+  "version": "2.2.1",
   "description": "A webpage introducing ghibli movies with html5, css3, javascript",
   "main": "app.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/minusmo/Ghibli-Movie-Showcase-.git"
+    "url": "git+https://minusmo.github.io/Films-of-Ghibli/.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/minusmo/Ghibli-Movie-Showcase-/issues"
+    "url": "https://minusmo.github.io/Films-of-Ghibli/issues"
   },
-  "homepage": "https://github.com/minusmo/Ghibli-Movie-Showcase-#readme",
+  "homepage": "https://minusmo.github.io/Films-of-Ghibli/#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
