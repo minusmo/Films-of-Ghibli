@@ -1,4 +1,4 @@
-# Ghibli Movie Showcase
+# Films of Ghibli
 
 ## A webpage introducing Studio Ghibli's movies
 
