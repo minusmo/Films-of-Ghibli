@@ -5,7 +5,7 @@ class MovieCard extends HTMLElement {
   constructor(posterUrl, movieTitle) {
     super();
 
-    let shadowRoot = this.attachShadow({ mode: "open" });
+    const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = `
         <style>
           :host {

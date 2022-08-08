@@ -1,0 +1,259 @@
+{
+  "collectionName": "My Music DB",
+  "collectionDescription": "My favorite music collection",
+  "items": [
+    {
+      "title": "True Blue",
+      "artist": "Madonna",
+      "genre": "Dance Pop",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/true-blue.jpg",
+      "releasedYear": "1986",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/6fmnT17jc2Sc69q3nza1eD?si=jo8UDwADS96lBLqjQc9cIQ"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Open Your Heart",
+          "playTime": "4:13",
+          "number": 2
+        },
+        {
+          "title": "True Blue",
+          "playTime": "4:17",
+          "number": 6
+        }
+      ]
+    },
+    {
+      "title": "Brothers In Arms",
+      "artist": "Dire Straits",
+      "genre": "Pop Rock, Blues Rock",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/brothers-in-arms.webp",
+      "releasedYear": "1985",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/6Pz06FAaeym0JSqVqIkN56?si=Qis5m8J1Rku-60MnOx83Zw"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Money For Nothing",
+          "playTime": "8:25",
+          "number": 2
+        },
+        {
+          "title": "Your Latest Trick",
+          "playTime": "6:29",
+          "number": 4
+        }
+      ]
+    },
+    {
+      "title": "Time",
+      "artist": "Electric Light Orchestra",
+      "genre": "Pop Rock, Rock Opera, Synth Pop",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/time.webp",
+      "releasedYear": "1981",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/4k1GJg2poyo6hwWLqJn9C2?si=uqPfGHmJR7Ca3i8YSIZeZg"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Twilight",
+          "playTime": "3:41",
+          "number": 2
+        },
+        {
+          "title": "Hold On Tight",
+          "playTime": "3:06",
+          "number": 12
+        }
+      ]
+    },
+    {
+      "title": "사랑하기 때문에",
+      "artist": "유재하",
+      "genre": "Korean Ballad, Soft Rock",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/because-I-love-you.webp",
+      "releasedYear": "1987",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/2Kb78rmvg0suvhVPcjBtlm?si=qCrPv3pQS5mOdXhE6IX1dQ"
+      },
+      "recommendedTracks": [
+        {
+          "title": "가리워진 길",
+          "playTime": "3:17",
+          "number": 6
+        },
+        {
+          "title": "내 마음에 비친 내 모습",
+          "playTime": "4:53",
+          "number": 4
+        }
+      ]
+    },
+    {
+      "title": "XO",
+      "artist": "Elliott Smith",
+      "genre": "Indie Pop, Chamber Pop, Indie Folk",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/xo.webp",
+      "releasedYear": "1998",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/1zOxlHQGGV6EH7n4OIFTyh?si=ZPstXEkgQ4Ket2BMcRyajw"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Waltz #2(XO)",
+          "playTime": "4:40",
+          "number": 3
+        },
+        {
+          "title": "Pitseleh",
+          "playTime": "3:22",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "title": "Boston",
+      "artist": "Boston",
+      "genre": "Hard Rock, AOR",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/boston.webp",
+      "releasedYear": "1976",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/2QLp07RO6anZHmtcKTEvSC?si=pcdR6KhbRLa_jZ4dMWYK4Q"
+      },
+      "recommendedTracks": [
+        {
+          "title": "More Than a Feeling",
+          "playTime": "4:45",
+          "number": 1
+        },
+        {
+          "title": "Peace of Mind",
+          "playTime": "5:03",
+          "number": 2
+        }
+      ]
+    },
+    {
+      "title": "The Last Of The Rock Stars",
+      "artist": "Ronnie Spector",
+      "genre": "Pop Rock",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/the-last-of-the-rock-stars.webp",
+      "releasedYear": "2009",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/2nKgaJjhKtKfsxcaymeof4?si=1WvVROtIReay1HEUTkHsJw"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Never Gonna Be Your Baby",
+          "playTime": "4:05",
+          "number": 4
+        },
+        {
+          "title": "You Can't Put Your Arms Around A Memory",
+          "playTime": "3:55",
+          "number": 8
+        }
+      ]
+    },
+    {
+      "title": "My Favorite Things",
+      "artist": "John Coltrane",
+      "genre": "Modal Jazz, Post-Bob",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/my-favorite-things.webp",
+      "releasedYear": "1961",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/3nLStxdTkSzihxm7FTLzCP?si=FFMWy4cwQV-n-aBg5t1i-w"
+      },
+      "recommendedTracks": [
+        {
+          "title": "My Favorite Things",
+          "playTime": "13:44",
+          "number": 1
+        },
+        {
+          "title": "But Not for Me",
+          "playTime": "9:41",
+          "number": 4
+        }
+      ]
+    },
+    {
+      "title": "Mellon Collie and the Infinite Sadness",
+      "artist": "The Smashing Pumpkins",
+      "genre": "Alternative Rock, Dream Pop",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/mellon-collie-and-the-infinite-sadness.webp",
+      "releasedYear": "1995",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/55RhFRyQFihIyGf61MgcfV?si=4l60NAEVRfqlE5uKYGdS8g"
+      },
+      "recommendedTracks": [
+        {
+          "title": "Cupid De Locke",
+          "playTime": "2:50",
+          "number": 10
+        },
+        {
+          "title": "1979",
+          "playTime": "4:26",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "title": "The Stone Roses",
+      "artist": "The Stone Roses",
+      "genre": "Baggy, Neo-Psychedelia",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/the-stone-roses.webp",
+      "releasedYear": "1989",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/0um9FI6BLBldL5POP4D4Cw?si=q4auCQzBQKCrgd8wfFAc0g"
+      },
+      "recommendedTracks": [
+        {
+          "title": "I Wanna Be Adored",
+          "playTime": "4:52",
+          "number": 1
+        },
+        {
+          "title": "Waterfall",
+          "playTime": "4:38",
+          "number": 3
+        }
+      ]
+    },
+    {
+      "title": "Meat Is Murder",
+      "artist": "The Smiths",
+      "genre": "Jangle Pop, Indie Pop",
+      "recommendation": "strong",
+      "albumArt": "./src/images/itemImgs/meat-is-murder.webp",
+      "releasedYear": "1985",
+      "stream": {
+        "spotify": "https://open.spotify.com/album/5DM1qCdgGt2zbknnsVn1Ca?si=gV-q5_89TxmYB8NxLSsdXQ"
+      },
+      "recommendedTracks": [
+        {
+          "title": "What She Said",
+          "playTime": "2:42",
+          "number": 4
+        },
+        {
+          "title": "Barbarism Begins at Home",
+          "playTime": "6:53",
+          "number": 8
+        }
+      ]
+    }
+  ]
+}

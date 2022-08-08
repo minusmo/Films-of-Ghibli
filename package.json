@@ -1,7 +1,7 @@
 {
-  "name": "Films-of-Ghibli",
-  "version": "2.2.1",
-  "description": "A webpage introducing ghibli movies with html5, css3, javascript",
+  "name": "My Music DB",
+  "version": "1.0.0",
+  "description": "A web page introducing My favorite musics",
   "main": "app.js",
   "scripts": {
     "test": "mocha"
