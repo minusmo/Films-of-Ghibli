@@ -1,6 +1,6 @@
 {
   "name": "My Music DB",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A web page introducing My favorite musics",
   "main": "app.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://minusmo.github.io/Films-of-Ghibli/.git"
+    "url": "git+https://github.com/minusmo/My-Music-DB/.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://minusmo.github.io/Films-of-Ghibli/issues"
+    "url": "https://github.com/minusmo/My-Music-DB/issues"
   },
-  "homepage": "https://minusmo.github.io/Films-of-Ghibli/#readme",
+  "homepage": "https://github.com/minusmo/My-Music-DB/#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
