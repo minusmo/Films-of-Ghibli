@@ -69,7 +69,7 @@ export class SingleItemView extends HTMLElement {
 
     #addBackButton() {
         const backButton = document.createElement("button");
-        backButton.style.backgroundImage = "url(./src/images/reshot-icon-angle-back-8E4DS2MACR.svg)";
+        backButton.style.backgroundImage = "url(./src/images/icons/reshot-icon-angle-back-8E4DS2MACR.svg)";
         backButton.setAttribute("id", "button-back");
         backButton.addEventListener("click", () => {
             this.#removeChildren(this.#recommendedTracks);
