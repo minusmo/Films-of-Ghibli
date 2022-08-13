@@ -12,6 +12,7 @@ import { CollectionInfoView } from "./modules/Views/ItemListView/CollectionInfoV
 import { ItemListView } from "./modules/Views/ItemListView/ItemListView.mjs";
 import { ItemView } from "./modules/Views/ItemListView/ItemView.mjs";
 import { ItemCollection } from "./modules/Models/ItemCollection.mjs";
+import { Divider } from "./modules/Views/StaticView/Divider.mjs";
 
 async function main() {
     try {
@@ -40,7 +41,9 @@ async function main() {
         const singleImgView = new SingleImgView();
         singleItemView.addSingleImg(singleImgView);
         
+        const divider = new Divider();
         mainView.addChild(collectionInfoView);
+        mainView.addChild(divider);
         mainView.addChild(itemListView);
         document.body.appendChild(mainView);
         document.body.appendChild(singleItemView);

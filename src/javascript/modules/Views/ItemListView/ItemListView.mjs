@@ -4,11 +4,11 @@ const style = `
     <style>
         :host {
             display: grid;
-            grid-template-rows: repeat(auto-fill, minmax(8rem, 1fr));
+            grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
             grid-template-columns: 1fr 1fr 1fr;
             gap: 2%;
-            padding: 1rem;
-            overflow: scroll;
+            padding: 5%;
+            overflow: auto;
         }
     </style>
 `;
