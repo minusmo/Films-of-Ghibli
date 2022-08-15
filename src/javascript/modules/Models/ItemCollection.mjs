@@ -6,6 +6,9 @@ export class ItemCollection {
             this.#items = items;
         }
     }
+    setItems(items) {
+        this.#items = items;
+    }
     getItems() {
         return this.#items;
     }
