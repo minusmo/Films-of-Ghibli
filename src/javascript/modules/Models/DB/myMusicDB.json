@@ -2,7 +2,8 @@
   "collectionName": "My Music DB",
   "collectionDescription": "My favorite music collection",
   "items": [
-    {
+    { 
+      "id": 0,
       "title": "True Blue",
       "artist": "Madonna",
       "genre": "Dance Pop",
@@ -26,6 +27,7 @@
       ]
     },
     {
+      "id": 1,
       "title": "Brothers In Arms",
       "artist": "Dire Straits",
       "genre": "Pop Rock, Blues Rock",
@@ -49,6 +51,7 @@
       ]
     },
     {
+      "id": 2,
       "title": "Time",
       "artist": "Electric Light Orchestra",
       "genre": "Pop Rock, Rock Opera, Synth Pop",
@@ -72,6 +75,7 @@
       ]
     },
     {
+      "id": 3,
       "title": "사랑하기 때문에",
       "artist": "유재하",
       "genre": "Korean Ballad, Soft Rock",
@@ -95,6 +99,7 @@
       ]
     },
     {
+      "id": 4,
       "title": "XO",
       "artist": "Elliott Smith",
       "genre": "Indie Pop, Chamber Pop, Indie Folk",
@@ -118,6 +123,7 @@
       ]
     },
     {
+      "id": 5,
       "title": "Boston",
       "artist": "Boston",
       "genre": "Hard Rock, AOR",
@@ -141,6 +147,7 @@
       ]
     },
     {
+      "id": 6,
       "title": "The Last Of The Rock Stars",
       "artist": "Ronnie Spector",
       "genre": "Pop Rock",
@@ -164,6 +171,7 @@
       ]
     },
     {
+      "id": 7,
       "title": "My Favorite Things",
       "artist": "John Coltrane",
       "genre": "Modal Jazz, Post-Bob",
@@ -187,6 +195,7 @@
       ]
     },
     {
+      "id": 8,
       "title": "Mellon Collie and the Infinite Sadness",
       "artist": "The Smashing Pumpkins",
       "genre": "Alternative Rock, Dream Pop",
@@ -210,6 +219,7 @@
       ]
     },
     {
+      "id": 9,
       "title": "The Stone Roses",
       "artist": "The Stone Roses",
       "genre": "Baggy, Neo-Psychedelia",
@@ -233,6 +243,7 @@
       ]
     },
     {
+      "id": 10,
       "title": "Meat Is Murder",
       "artist": "The Smiths",
       "genre": "Jangle Pop, Indie Pop",
