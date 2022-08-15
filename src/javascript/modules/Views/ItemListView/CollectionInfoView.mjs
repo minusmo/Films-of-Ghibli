@@ -4,7 +4,7 @@ const style = `
     <style>
         :host {
             display: block;
-            padding: 2rem;
+            padding: 5%;
         }
     </style>
 `;
@@ -18,23 +18,32 @@ export class CollectionInfoView extends HTMLElement {
     shadowRoot.innerHTML = style;
     this.#shadowRoot = shadowRoot;
   }
-  connectedCallback() {
+
+  addCollectionName() {
     const heading = document.createElement("h1");
     heading.setAttribute("id", "collection-name");
     heading.textContent = this.#collectionInfoController.getCollectionName();
     this.#shadowRoot.appendChild(heading);
+  }
 
+  addCollectionDescription() {
     const paragraph = document.createElement("p");
     paragraph.setAttribute("id", "collection-description");
     paragraph.textContent =
       this.#collectionInfoController.getCollectionDescription();
     this.#shadowRoot.appendChild(paragraph);
   }
+
   addController(controller) {
     this.#collectionInfoController = controller;
   }
+
   display() {
-    this.setAttribute("hidden", false);
+    this.style.display = "block";
+  }
+
+  addChild(node) {
+    this.#shadowRoot.appendChild(node);
   }
 }
 
