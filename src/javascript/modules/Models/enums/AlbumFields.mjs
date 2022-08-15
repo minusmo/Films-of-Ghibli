@@ -1,0 +1,1 @@
+export const albumFields = ["addedOrder", "artist", "recommendation", "genre", "releasedDate"];
