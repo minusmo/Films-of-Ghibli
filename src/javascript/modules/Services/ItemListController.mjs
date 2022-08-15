@@ -1,13 +1,20 @@
+import { albumFields } from "../Models/enums/AlbumFields.mjs";
+import { ItemSorter } from "./ItemSorter.mjs";
+
 export class ItemListController {
     #itemCollection;
     #itemListView;
+    #itemSorter;
     constructor(itemListModel, itemListView) {
         this.#itemCollection = itemListModel;
         this.#itemListView = itemListView;
+        this.#itemSorter = new ItemSorter(albumFields);
     }
-    displayView() {
-        this.#itemListView.display();
+
+    renderItemListView() {
+        this.#itemListView.renderItems();
     }
+
     getItemList() {
         return this.#itemCollection.getItems();
     }
@@ -15,63 +22,9 @@ export class ItemListController {
         return this.#itemCollection.createIterator();
     }
 
-    sortBy(itemField) {
-        let copiedItems = this.#itemCollection.getItems().slice();
-        let sortedItems;
-        switch (itemField) {
-            case "artist":
-                sortedItems = this.#sortByArtist(copiedItems);
-                break;
-            case "releasedDate":
-                sortedItems = this.#sortByReleasedDate(copiedItems);
-                break;
-            case "recommendation":
-                sortedItems = this.#sortByRecommendation(copiedItems);
-                break;
-        }
-        return sortedItems;
-    }
-    #sortByArtist(copiedItems) {
-        return copiedItems.sort((itemA,itemB) => {
-            const artistA = itemA.getArtist();
-            const artistB = itemB.getArtist();
-            if (artistA < artistB) {
-                return -1;
-            }
-            else if (artistA > artistB) {
-                return 1;
-            }
-            else {
-                return 0;
-            }
-        });
-    }
-    #sortByReleasedDate(copiedItems) {
-        return copiedItems.sort((itemA, itemB) => {
-            const dateA = new Date(itemA.getReleasedDate());
-            const dateB = new Date(itemB.getReleasedDate());
-            if (dateA < dateB) {
-                return -1;
-            }
-            else if (dateA > dateB) {
-                return 1;
-            }
-            else {
-                return 0;
-            }
-        });
-    }
-    #sortByRecommendation(copiedItems) {
-        const recommendationPoint = {
-            "strong": 10,
-            "medium": 5,
-            "weak": 1,
-        };
-        return copiedItems.sort((itemA, itemB) => {
-            const recoA = itemA.getRecommendation();
-            const recoB = itemB.getRecommendation();
-            return recommendationPoint[recoA] - recommendationPoint[recoB];
-        });
+    sortItemsBy(itemField) {
+        const sortedItems = this.#itemSorter.sortBy(this.#itemCollection.getItems(), itemField);
+        this.#itemCollection.setItems(sortedItems);
     }
 
     filterBy(itemField, value) {
