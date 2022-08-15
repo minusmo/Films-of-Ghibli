@@ -8,17 +8,23 @@ export class Album {
     #tracks = [];
     #itemObject;
     #title;
+    #id;
     constructor(albumObject) {
+        this.#id = albumObject.id;
         this.#title = albumObject.title;
         this.#albumArt = albumObject.albumArt;
         this.#artist = albumObject.artist;
-        this.#releasedDate = albumObject.releaseDate;
+        this.#releasedDate = albumObject.releasedYear;
         this.#recommendation = albumObject.recommendation;
         this.#genre = albumObject.genre;
         for (let track of albumObject.recommendedTracks) {
             this.#tracks.push(track);
         }
         this.#itemObject = albumObject;
+    }
+
+    getId() {
+        return this.#id;
     }
 
     getTitle() {
@@ -53,10 +59,3 @@ export class Album {
         return this.#itemObject;
     }
 }
-
-export const AlbumFields = {
-    artist: 0,
-    recommendation: 1,
-    genre: 2,
-    releasedDate: 3,
-};
