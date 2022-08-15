@@ -14,37 +14,51 @@ const style = `
 `;
 
 export class ItemListView extends HTMLElement {
-    #itemListController;
-    #ItemView;
-    #shadowRoot;
-    constructor(ItemView) {
-        super();
-        this.#ItemView = ItemView;
-        const shadowRoot = this.attachShadow({ mode: "open" });
-        shadowRoot.innerHTML = style;
-        this.#shadowRoot = shadowRoot;
+  #itemListController;
+  #ItemView;
+  #shadowRoot;
+  constructor(ItemView) {
+    super();
+    this.#ItemView = ItemView;
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    this.#shadowRoot = shadowRoot;
+    this.#addStyle(style);
+  }
+
+  renderItems() {
+    this.#shadowRoot.replaceChildren();
+    this.#addStyle(style);
+    this.#appendItems();
+  }
+
+  connectedCallback() {
+    if (this.isConnected) {
+      this.#appendItems();
     }
-    
-    connectedCallback() {
-        if (this.isConnected) {
-            const itemIterator = this.#itemListController.getItemIterator();
-            while (itemIterator.hasMore()) {
-                const currentItem = itemIterator.getNext();
-                const itemView = new this.#ItemView(currentItem);
-                this.#shadowRoot.appendChild(itemView);
-            }
-        }
+  }
+
+  #addStyle(style) {
+    this.#shadowRoot.innerHTML = style;
+  }
+
+  #appendItems() {
+    const itemIterator = this.#itemListController.getItemIterator();
+    while (itemIterator.hasMore()) {
+      const currentItem = itemIterator.getNext();
+      const itemView = new this.#ItemView(currentItem);
+      this.#shadowRoot.appendChild(itemView);
     }
-    
-    disconnectedCallback() {
-        for (let child of this.children) {
-            this.#shadowRoot.removeChild(child);
-        }
+  }
+
+  disconnectedCallback() {
+    for (let child of this.children) {
+      this.#shadowRoot.removeChild(child);
     }
-    
-    addController(controller) {
-        this.#itemListController = controller;
-    }
+  }
+
+  addController(controller) {
+    this.#itemListController = controller;
+  }
 }
 
 customElements.define("item-list", ItemListView);
