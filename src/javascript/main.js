@@ -13,13 +13,15 @@ import { ItemListView } from "./modules/Views/ItemListView/ItemListView.mjs";
 import { ItemView } from "./modules/Views/ItemListView/ItemView.mjs";
 import { ItemCollection } from "./modules/Models/ItemCollection.mjs";
 import { Divider } from "./modules/Views/StaticView/Divider.mjs";
+import { SortSelectView } from "./modules/Views/FormView/SortSelectView.mjs";
+import { albumFields } from "./modules/Models/enums/AlbumFields.mjs";
 
 async function main() {
     try {
         const dataRetriever = new DataRetriever(GET_MUSIC);
         const response = await dataRetriever.fetchData();
         const musicCollection = await response.json();
-        console.log(musicCollection);
+
         const { collectionName, collectionDescription, items } = musicCollection;
         const albumDeserializer = new Deserializer(items, Album);
     
@@ -29,12 +31,16 @@ async function main() {
             collectionDescription
         }, collectionInfoView);
         collectionInfoView.addController(collectionInfoController);
-    
+        
         const albumCollection = new ItemCollection(albumDeserializer.getDeserialized());
         const itemListView = new ItemListView(ItemView);
         const itemListController = new ItemListController(albumCollection, itemListView);
         itemListView.addController(itemListController);
-    
+        
+        const sortSelectView = new SortSelectView(itemListController, ["addedOrder", "artist", "recommendation", "releasedDate"]);
+        collectionInfoView.addCollectionName();
+        collectionInfoView.addCollectionDescription();
+        collectionInfoView.addChild(sortSelectView);
         const mainView = new MainView();
         
         const singleItemView = new SingleItemView();
@@ -45,6 +51,7 @@ async function main() {
         mainView.addChild(collectionInfoView);
         mainView.addChild(divider);
         mainView.addChild(itemListView);
+
         document.body.appendChild(mainView);
         document.body.appendChild(singleItemView);
     }
