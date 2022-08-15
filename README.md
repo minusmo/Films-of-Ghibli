@@ -31,10 +31,10 @@ Here's what you can do with this application
 ## To-Do
 
 - [ ] Add Search Interface
-- [ ] Add Sort Interface
+- [x] Add Sort Interface
 - [ ] Add Filter Interface
 - [ ] Fix Responsive Design
-- [ ] Add Favicon
+- [x] Add Favicon
 - [ ] Update Browser Tests
 
 ### Contact
