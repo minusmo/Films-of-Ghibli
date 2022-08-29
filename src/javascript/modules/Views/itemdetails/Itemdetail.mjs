@@ -15,6 +15,7 @@ const style = `
             grid-template-rows: 1fr;
             grid-template-columns: 1fr 1fr;
             background-color: white;
+            align-items: center;
         }
         #button-back {
             position: absolute;
@@ -28,7 +29,7 @@ const style = `
             cursor: pointer;
         }
         #section-info {
-            padding: 25%;
+            padding: 0 25%;
         }
         #section-info p {
             font-weight: bolder;
@@ -62,7 +63,6 @@ const style = `
 `;
 
 export class ItemDetail extends HTMLElement {
-    #item;
     #shadowRoot;
     #title;
     #artist;
