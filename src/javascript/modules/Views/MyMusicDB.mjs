@@ -9,6 +9,16 @@ const style = `
             grid-template-rows: 1fr;
             grid-template-columns: 1fr 1fr;
         }
+        @media (max-width: 400px) {
+            :host {
+                width: 100vw;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
     </style>
 `;
 
