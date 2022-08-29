@@ -12,7 +12,7 @@ const style = `
     </style>
 `;
 
-export class MainView extends HTMLElement {
+export class MyMusicDB extends HTMLElement {
     #shadowRoot;
     constructor() {
         super();
@@ -25,4 +25,4 @@ export class MainView extends HTMLElement {
     }
 }
 
-customElements.define("main-container", MainView);
+customElements.define("my-music-db", MyMusicDB);

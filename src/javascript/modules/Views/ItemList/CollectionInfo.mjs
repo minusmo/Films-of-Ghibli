@@ -9,7 +9,7 @@ const style = `
     </style>
 `;
 
-export class CollectionInfoView extends HTMLElement {
+export class CollectionInfo extends HTMLElement {
   #collectionInfoController;
   #shadowRoot;
   constructor() {
@@ -47,4 +47,4 @@ export class CollectionInfoView extends HTMLElement {
   }
 }
 
-customElements.define("collection-info", CollectionInfoView);
+customElements.define("collection-info", CollectionInfo);

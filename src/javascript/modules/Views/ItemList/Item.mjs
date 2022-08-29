@@ -4,6 +4,11 @@ const style = `
     <style>
         :host {
             cursor: pointer;
+            transition: .3s;
+        }
+        :host(:hover) {
+          scale: 1.2;
+
         }
         #item-img {
             width: 100%;
@@ -13,7 +18,7 @@ const style = `
     </style>
 `;
 
-export class ItemView extends HTMLElement {
+export class Item extends HTMLElement {
   #item;
   #shadowRoot;
   constructor(item) {
@@ -31,8 +36,8 @@ export class ItemView extends HTMLElement {
     if (this.isConnected) {
       this.addEventListener("click", () => {
         this.#disableItemListScroll();
-        const singleItemView = document.querySelector("single-item");
-        singleItemView.showItem(this.#item);
+        const itemDetail = document.querySelector("item-detail");
+        itemDetail.showItem(this.#item);
     });
       const itemImg = this.#shadowRoot.querySelector("#item-img");
       itemImg.src = this.#item.getAlbumArt();
@@ -40,10 +45,10 @@ export class ItemView extends HTMLElement {
   }
 
   #disableItemListScroll() {
-    const mainContainer = document.querySelector("main-container");
-    const itemList = mainContainer.shadowRoot.querySelector("item-list");
+    const myMusicDB = document.querySelector("my-music-db");
+    const itemList = myMusicDB.shadowRoot.querySelector("item-list");
     itemList.style.overflow = "hidden";
   }
 }
 
-customElements.define("item-view", ItemView);
+customElements.define("a-item", Item);

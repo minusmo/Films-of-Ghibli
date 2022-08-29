@@ -24,4 +24,4 @@ export class Divider extends HTMLElement {
     }
 }
 
-customElements.define("divider-view", Divider);
+customElements.define("section-divider", Divider);

@@ -5,7 +5,7 @@ const style = `
         :host {
             display: grid;
             grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
             gap: 2%;
             padding: 5%;
             overflow: auto;
@@ -13,7 +13,7 @@ const style = `
     </style>
 `;
 
-export class ItemListView extends HTMLElement {
+export class ItemList extends HTMLElement {
   #itemListController;
   #ItemView;
   #shadowRoot;
@@ -37,8 +37,8 @@ export class ItemListView extends HTMLElement {
     }
   }
 
-  #addStyle(style) {
-    this.#shadowRoot.innerHTML = style;
+  #addStyle(hostStyle) {
+    this.#shadowRoot.innerHTML = hostStyle;
   }
 
   #appendItems() {
@@ -61,4 +61,4 @@ export class ItemListView extends HTMLElement {
   }
 }
 
-customElements.define("item-list", ItemListView);
+customElements.define("item-list", ItemList);

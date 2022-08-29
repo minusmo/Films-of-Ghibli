@@ -1,24 +1,37 @@
 "use strict";
 
-import { ItemSorter } from "../../Services/ItemSorter.mjs";
-import { albumFields } from "../../Models/enums/AlbumFields.mjs";
+const options = {
+    "addedOrder": "추가된 순서",
+    "artist": "아티스트",
+    "recommendation": "추천도",
+    "releasedDate": "발매년도",
+};
 
 const style = `
     <style>
         :host {
-            display: block;
+            display: flex;
             width: 100%;
             height: 10%;
             border: 2px solid black;
+            box-shadow: 3px 3px black;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        #sort-select {
+            margin: 0.5rem;
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            border: 3px solid black;
         }
     </style>
 `;
 
-export class SortSelectView extends HTMLElement {
+export class SortSelection extends HTMLElement {
     #shadowRoot;
     #itemListController;
     #selectedValue;
-    #itemSorter = new ItemSorter(albumFields);
     constructor(itemListController, optionValues) {
         super();
         this.#itemListController = itemListController;
@@ -58,11 +71,11 @@ export class SortSelectView extends HTMLElement {
         for (const value of values) {
             const option = document.createElement("option");
             option.setAttribute("value", value);
-            option.textContent = value;
+            option.textContent = options[value];
             select.appendChild(option);
         }
     }
     
 }
 
-customElements.define("input-sort", SortSelectView);
+customElements.define("sort-selection", SortSelection);

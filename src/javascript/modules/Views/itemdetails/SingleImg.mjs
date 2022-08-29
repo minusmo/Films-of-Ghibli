@@ -10,11 +10,12 @@ const style = `
         #img-content {
             width: 75%;
             aspect-ratio: 1 / 1;
+            box-shadow: 5px 5px black;
         }
     </style>
 `;
 
-export class SingleImgView extends HTMLElement {
+export class SingleImg extends HTMLElement {
     #imgSrc;
     #imgContent;
     constructor(imgSrc = "") {
@@ -34,4 +35,4 @@ export class SingleImgView extends HTMLElement {
     }
 }
 
-customElements.define("single-img", SingleImgView);
+customElements.define("single-img", SingleImg);
