@@ -25,7 +25,7 @@ Here's what you can do with this application
 
 - See details about each music album(_ready_)
 - Search a music(_not yet_)
-- Sort musics By few options(_not yet_)
+- Sort musics By few options(_ready_)
 - Filter musics By few options(_not yet_)
 
 ## To-Do
