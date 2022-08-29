@@ -1,20 +1,19 @@
 "use strict";
-import { GET_MUSIC } from "./modules/Services/Credentials.mjs";
+import { GET_MUSIC } from "./modules/Models/DB/Credentials.mjs";
 import { Album } from "./modules/Models/Album.mjs";
 import { DataRetriever } from "./modules/Services/DataRetriever.mjs";
 import { ItemListController } from "./modules/Services/ItemListController.mjs";
 import { Deserializer } from "./modules/Services/Deserializer.mjs";
 import { CollectionInfoController } from "./modules/Services/CollectionInfoController.mjs";
-import { SingleItemView } from "./modules/Views/SingleItemView/SingleItemView.mjs";
-import { SingleImgView } from "./modules/Views/SingleItemView/SingleImgView.mjs";
-import { MainView } from "./modules/Views/MainView.mjs";
-import { CollectionInfoView } from "./modules/Views/ItemListView/CollectionInfoView.mjs";
-import { ItemListView } from "./modules/Views/ItemListView/ItemListView.mjs";
-import { ItemView } from "./modules/Views/ItemListView/ItemView.mjs";
+import { ItemDetail } from "./modules/Views/itemdetails/Itemdetail.mjs";
+import { SingleImg } from "./modules/Views/itemdetails/SingleImg.mjs";
+import { MyMusicDB } from "./modules/Views/MyMusicDB.mjs";
+import { CollectionInfo } from "./modules/Views/ItemList/CollectionInfo.mjs";
+import { ItemList } from "./modules/Views/ItemList/Itemlist.mjs";
+import { Item } from "./modules/Views/ItemList/Item.mjs";
 import { ItemCollection } from "./modules/Models/ItemCollection.mjs";
-import { Divider } from "./modules/Views/StaticView/Divider.mjs";
-import { SortSelectView } from "./modules/Views/FormView/SortSelectView.mjs";
-import { albumFields } from "./modules/Models/enums/AlbumFields.mjs";
+import { Divider } from "./modules/Views/utils/Divider.mjs";
+import { SortSelection } from "./modules/Views/Forms/SortSelection.mjs";
 
 async function main() {
     try {
@@ -25,35 +24,36 @@ async function main() {
         const { collectionName, collectionDescription, items } = musicCollection;
         const albumDeserializer = new Deserializer(items, Album);
     
-        const collectionInfoView = new CollectionInfoView();
+        const collectionInfo = new CollectionInfo();
         const collectionInfoController = new CollectionInfoController({
             collectionName,
             collectionDescription
-        }, collectionInfoView);
-        collectionInfoView.addController(collectionInfoController);
+        }, collectionInfo);
+        collectionInfo.addController(collectionInfoController);
         
         const albumCollection = new ItemCollection(albumDeserializer.getDeserialized());
-        const itemListView = new ItemListView(ItemView);
-        const itemListController = new ItemListController(albumCollection, itemListView);
-        itemListView.addController(itemListController);
+        const itemList = new ItemList(Item);
+        const itemListController = new ItemListController(albumCollection, itemList);
+        itemList.addController(itemListController);
         
-        const sortSelectView = new SortSelectView(itemListController, ["addedOrder", "artist", "recommendation", "releasedDate"]);
-        collectionInfoView.addCollectionName();
-        collectionInfoView.addCollectionDescription();
-        collectionInfoView.addChild(sortSelectView);
-        const mainView = new MainView();
+        const optionValues = ["addedOrder", "artist", "recommendation", "releasedDate"];
+        const sortSelection = new SortSelection(itemListController, optionValues);
+        collectionInfo.addCollectionName();
+        collectionInfo.addCollectionDescription();
+        collectionInfo.addChild(sortSelection);
+        const myMusicDB = new MyMusicDB();
         
-        const singleItemView = new SingleItemView();
-        const singleImgView = new SingleImgView();
-        singleItemView.addSingleImg(singleImgView);
+        const itemdetail = new ItemDetail();
+        const singleImg = new SingleImg();
+        itemdetail.addSingleImg(singleImg);
         
         const divider = new Divider();
-        mainView.addChild(collectionInfoView);
-        mainView.addChild(divider);
-        mainView.addChild(itemListView);
+        myMusicDB.addChild(collectionInfo);
+        myMusicDB.addChild(divider);
+        myMusicDB.addChild(itemList);
 
-        document.body.appendChild(mainView);
-        document.body.appendChild(singleItemView);
+        document.body.appendChild(myMusicDB);
+        document.body.appendChild(itemdetail);
     }
     catch (error) {
         console.error(error);
