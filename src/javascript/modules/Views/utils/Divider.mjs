@@ -11,6 +11,16 @@ const style = `
             top: 5%;
             left: 50%;
         }
+
+        @media (max-width: 400px) {
+            :host {
+                position: static;
+                display: block;
+                background-color: black;
+                width: 90%;
+                height: 2px;
+            }
+        }
     </style>
 `;
 
@@ -18,9 +28,10 @@ export class Divider extends HTMLElement {
     #shadowRoot;
     constructor() {
         super();
-        const shadowRoot = this.attachShadow({ mode: "open"});
+        const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.innerHTML = style;
         this.#shadowRoot = shadowRoot;
+        this.setAttribute("id", "divider");
     }
 }
 
