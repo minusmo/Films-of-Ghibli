@@ -15,6 +15,12 @@ const style = `
         #img-content:hover {
             scale: 1.3;
         }
+
+        @media (max-width: 400px) {
+            #img-content {
+                width: 75vw;
+            }
+        }
     </style>
 `;
 
