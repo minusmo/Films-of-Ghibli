@@ -8,9 +8,12 @@ const style = `
             justify-content: center;
         }
         #img-content {
-            width: 75%;
             aspect-ratio: 1 / 1;
             box-shadow: 5px 5px black;
+            transition: .3s;
+        }
+        #img-content:hover {
+            scale: 1.3;
         }
     </style>
 `;

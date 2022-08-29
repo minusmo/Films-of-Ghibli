@@ -8,7 +8,6 @@ const style = `
         }
         :host(:hover) {
           scale: 1.2;
-
         }
         #item-img {
             width: 100%;
