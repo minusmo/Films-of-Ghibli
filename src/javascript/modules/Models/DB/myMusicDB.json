@@ -8,7 +8,7 @@
       "artist": "Madonna",
       "genre": "Dance Pop",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/true-blue.jpg",
+      "albumArt": "./src/assets/images/itemImgs/true-blue.jpg",
       "releasedYear": "1986",
       "stream": {
         "spotify": "https://open.spotify.com/album/6fmnT17jc2Sc69q3nza1eD?si=jo8UDwADS96lBLqjQc9cIQ"
@@ -32,7 +32,7 @@
       "artist": "Dire Straits",
       "genre": "Pop Rock, Blues Rock",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/brothers-in-arms.webp",
+      "albumArt": "./src/assets/images/itemImgs/brothers-in-arms.webp",
       "releasedYear": "1985",
       "stream": {
         "spotify": "https://open.spotify.com/album/6Pz06FAaeym0JSqVqIkN56?si=Qis5m8J1Rku-60MnOx83Zw"
@@ -56,7 +56,7 @@
       "artist": "Electric Light Orchestra",
       "genre": "Pop Rock, Rock Opera, Synth Pop",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/time.webp",
+      "albumArt": "./src/assets/images/itemImgs/time.webp",
       "releasedYear": "1981",
       "stream": {
         "spotify": "https://open.spotify.com/album/4k1GJg2poyo6hwWLqJn9C2?si=uqPfGHmJR7Ca3i8YSIZeZg"
@@ -80,7 +80,7 @@
       "artist": "유재하",
       "genre": "Korean Ballad, Soft Rock",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/because-I-love-you.webp",
+      "albumArt": "./src/assets/images/itemImgs/because-I-love-you.webp",
       "releasedYear": "1987",
       "stream": {
         "spotify": "https://open.spotify.com/album/2Kb78rmvg0suvhVPcjBtlm?si=qCrPv3pQS5mOdXhE6IX1dQ"
@@ -104,7 +104,7 @@
       "artist": "Elliott Smith",
       "genre": "Indie Pop, Chamber Pop, Indie Folk",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/xo.webp",
+      "albumArt": "./src/assets/images/itemImgs/xo.webp",
       "releasedYear": "1998",
       "stream": {
         "spotify": "https://open.spotify.com/album/1zOxlHQGGV6EH7n4OIFTyh?si=ZPstXEkgQ4Ket2BMcRyajw"
@@ -128,7 +128,7 @@
       "artist": "Boston",
       "genre": "Hard Rock, AOR",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/boston.webp",
+      "albumArt": "./src/assets/images/itemImgs/boston.webp",
       "releasedYear": "1976",
       "stream": {
         "spotify": "https://open.spotify.com/album/2QLp07RO6anZHmtcKTEvSC?si=pcdR6KhbRLa_jZ4dMWYK4Q"
@@ -152,7 +152,7 @@
       "artist": "Ronnie Spector",
       "genre": "Pop Rock",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/the-last-of-the-rock-stars.webp",
+      "albumArt": "./src/assets/images/itemImgs/the-last-of-the-rock-stars.webp",
       "releasedYear": "2009",
       "stream": {
         "spotify": "https://open.spotify.com/album/2nKgaJjhKtKfsxcaymeof4?si=1WvVROtIReay1HEUTkHsJw"
@@ -176,7 +176,7 @@
       "artist": "John Coltrane",
       "genre": "Modal Jazz, Post-Bob",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/my-favorite-things.webp",
+      "albumArt": "./src/assets/images/itemImgs/my-favorite-things.webp",
       "releasedYear": "1961",
       "stream": {
         "spotify": "https://open.spotify.com/album/3nLStxdTkSzihxm7FTLzCP?si=FFMWy4cwQV-n-aBg5t1i-w"
@@ -200,7 +200,7 @@
       "artist": "The Smashing Pumpkins",
       "genre": "Alternative Rock, Dream Pop",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/mellon-collie-and-the-infinite-sadness.webp",
+      "albumArt": "./src/assets/images/itemImgs/mellon-collie-and-the-infinite-sadness.webp",
       "releasedYear": "1995",
       "stream": {
         "spotify": "https://open.spotify.com/album/55RhFRyQFihIyGf61MgcfV?si=4l60NAEVRfqlE5uKYGdS8g"
@@ -224,7 +224,7 @@
       "artist": "The Stone Roses",
       "genre": "Baggy, Neo-Psychedelia",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/the-stone-roses.webp",
+      "albumArt": "./src/assets/images/itemImgs/the-stone-roses.webp",
       "releasedYear": "1989",
       "stream": {
         "spotify": "https://open.spotify.com/album/0um9FI6BLBldL5POP4D4Cw?si=q4auCQzBQKCrgd8wfFAc0g"
@@ -248,7 +248,7 @@
       "artist": "The Smiths",
       "genre": "Jangle Pop, Indie Pop",
       "recommendation": "strong",
-      "albumArt": "./src/images/itemImgs/meat-is-murder.webp",
+      "albumArt": "./src/assets/images/itemImgs/meat-is-murder.webp",
       "releasedYear": "1985",
       "stream": {
         "spotify": "https://open.spotify.com/album/5DM1qCdgGt2zbknnsVn1Ca?si=gV-q5_89TxmYB8NxLSsdXQ"

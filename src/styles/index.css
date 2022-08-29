@@ -4,10 +4,6 @@ html {
   --light-font-color: white;
   --box-padding: 0.5rem;
   --box-shadow: 0.5rem;
-  --page-header-background: #74bdcb;
-  --page-main-background: #e7f2f8;
-  --page-footer-background: #ffa384;
-  --info-card-background: #efe7bc;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -21,10 +17,10 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-item-view {
+a-item {
   transition: 0.3s;
 }
 
-item-view:hover {
+a-item:hover {
   opacity: 0.7;
 }

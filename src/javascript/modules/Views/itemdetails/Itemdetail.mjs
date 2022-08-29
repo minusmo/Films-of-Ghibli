@@ -18,6 +18,8 @@ const style = `
         }
         #button-back {
             position: absolute;
+            top: 2.5%;
+            left: 2.5%;
             width: 5%;
             height: 5%;
             border: none;
@@ -26,27 +28,40 @@ const style = `
             cursor: pointer;
         }
         #section-info {
-            padding: 3rem;
+            padding: 25%;
         }
         #section-info p {
-            font-size: .5rem;
+            font-weight: bolder;
+            font-size: .6rem;
         }
         #album-streams {
             padding: 0;
         }
         #album-streams a {
+            font-size: .7rem;
             text-decoration: none;
             color: black;
-            background-color: bisque;
             border: 1px solid;
             border-radius: 5px;
             border-width: medium;
             padding: 0.2rem;
+            box-shadow: 5px 5px black;
+        }
+        #section-info section #RT-title {
+            font-size: .8rem;
+            font-weight: bolder;
+            margin: 10px 0;
+        }
+        #album-recommendedTracks div {
+            font-size: .7rem;
+        }
+        #album-recommendedTracks div span:nth-child(2) {
+            padding-left: 2.5%;
         }
     </style>
 `;
 
-export class SingleItemView extends HTMLElement {
+export class ItemDetail extends HTMLElement {
     #item;
     #shadowRoot;
     #title;
@@ -69,7 +84,7 @@ export class SingleItemView extends HTMLElement {
 
     #addBackButton() {
         const backButton = document.createElement("button");
-        backButton.style.backgroundImage = "url(./src/images/icons/reshot-icon-angle-back-8E4DS2MACR.svg)";
+        backButton.style.backgroundImage = "url(./src/assets/images/icons/reshot-icon-angle-back-8E4DS2MACR.svg)";
         backButton.setAttribute("id", "button-back");
         backButton.addEventListener("click", () => {
             this.#removeChildren(this.#recommendedTracks);
@@ -81,8 +96,8 @@ export class SingleItemView extends HTMLElement {
     }
 
     #enableItemListScroll() {
-        const mainContainer = document.querySelector("main-container");
-        const itemList = mainContainer.shadowRoot.querySelector("item-list");
+        const myMusicDB = document.querySelector("my-music-db");
+        const itemList = myMusicDB.shadowRoot.querySelector("item-list");
         itemList.style.overflow = "scroll";
     }
 
@@ -170,6 +185,12 @@ export class SingleItemView extends HTMLElement {
                 this.#streams.appendChild(stream);
             }
             
+            const recommendedTracksTitle = document.createElement("p");
+            recommendedTracksTitle.setAttribute("id", "RT-title");
+            const tracksTitle = document.createElement("strong");
+            tracksTitle.textContent = "Recommended Tracks";
+            recommendedTracksTitle.appendChild(tracksTitle);
+            this.#recommendedTracks.appendChild(recommendedTracksTitle);
             for (const [head, tail] of albumDetails.getRecommendedTracks()) {
                 const trackBox = document.createElement("div");
                 const trackHead = document.createElement("span");
@@ -207,4 +228,4 @@ export class SingleItemView extends HTMLElement {
     }
 }
 
-customElements.define("single-item", SingleItemView);
+customElements.define("item-detail", ItemDetail);
