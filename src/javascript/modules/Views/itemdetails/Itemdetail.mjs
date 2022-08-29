@@ -1,6 +1,7 @@
 "use strict";
 
 import { AlbumDetails } from "../../Models/AlbumDetails.mjs";
+import { Divider } from "../utils/Divider.mjs";
 
 const style = `
     <style>
@@ -59,6 +60,21 @@ const style = `
         #album-recommendedTracks div span:nth-child(2) {
             padding-left: 2.5%;
         }
+
+        #divider {
+            margin: 0 auto;
+        }
+
+        @media (max-width: 400px) {
+            :host {
+                width: 100vw;
+                height: 100vh;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 0 1fr;
+                background-color: white;
+                align-items: center;
+            }
+        }
     </style>
 `;
 
@@ -80,6 +96,7 @@ export class ItemDetail extends HTMLElement {
         this.hide = this.hide.bind(this);
         this.#addBackButton();
         this.#addInfoSection();
+        this.#addDivider();
     }
 
     #addBackButton() {
@@ -204,6 +221,11 @@ export class ItemDetail extends HTMLElement {
             
 
         }
+    }
+
+    #addDivider() {
+        const divider = new Divider();
+        this.#shadowRoot.appendChild(divider);
     }
 
     #addItemImg(itemImg) {
