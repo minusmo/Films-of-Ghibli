@@ -3,6 +3,9 @@
 const style = `
     <style>
         :host {
+            position: relative;
+            width: 32%;
+            height: fit-content;
             cursor: pointer;
             transition: .3s;
         }

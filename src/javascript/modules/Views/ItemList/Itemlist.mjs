@@ -3,10 +3,9 @@
 const style = `
     <style>
         :host {
-            display: grid;
-            grid-template-rows: repeat(auto-fill, minmax(7rem, 1fr));
-            grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-            gap: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
             padding: 5%;
             overflow: auto;
         }
