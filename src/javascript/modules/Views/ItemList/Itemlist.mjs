@@ -8,6 +8,7 @@ const style = `
             justify-content: space-evenly;
             padding: 5%;
             overflow: auto;
+            align-content: flex-start;
         }
     </style>
 `;
