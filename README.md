@@ -33,7 +33,7 @@ Here's what you can do with this application
 - [ ] Add Search Interface
 - [x] Add Sort Interface
 - [ ] Add Filter Interface
-- [ ] Fix Responsive Design
+- [x] Fix Responsive Design
 - [x] Add Favicon
 - [ ] Update Browser Tests
 
