@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack server --open",
+    "dev": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",
