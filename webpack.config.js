@@ -6,7 +6,10 @@ module.exports = {
     entry: "./src/javascript/main.js",
     output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "/"),
+        path: path.resolve(__dirname, "./dist"),
         clean: true,
+    },
+    devServer: {
+        static: path.resolve(__dirname),
     }
 };
