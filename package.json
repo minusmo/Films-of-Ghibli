@@ -1,6 +1,6 @@
 {
   "name": "My Music DB",
-  "version": "1.1.2",
+  "version": "1.2.2",
   "description": "A web page introducing My favorite musics",
   "main": "app.js",
   "scripts": {
