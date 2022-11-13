@@ -30,7 +30,7 @@ export class Item extends HTMLElement {
     shadowRoot.innerHTML = style;
     this.#shadowRoot = shadowRoot;
     const itemImg = document.createElement("img");
-    itemImg.setAttribute("class", "item-img");
+    itemImg.setAttribute("id", "item-img");
     shadowRoot.appendChild(itemImg);
   }
 
@@ -43,6 +43,7 @@ export class Item extends HTMLElement {
     });
       const itemImg = this.#shadowRoot.querySelector("#item-img");
       itemImg.src = this.#item.getAlbumArt();
+      itemImg.alt = this.#item.getTitle();
     }
   }
 
