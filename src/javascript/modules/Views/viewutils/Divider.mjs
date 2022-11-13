@@ -12,7 +12,7 @@ const style = `
             left: 50%;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
             :host {
                 position: static;
                 display: block;
