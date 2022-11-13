@@ -1,4 +1,5 @@
 "use strict";
+import { generateSrcSet, generateSizes } from "../utils/generateSrcset.js";
 
 const style = `
     <style>
@@ -42,8 +43,11 @@ export class Item extends HTMLElement {
         itemDetail.showItem(this.#item);
     });
       const itemImg = this.#shadowRoot.querySelector("#item-img");
-      itemImg.src = this.#item.getAlbumArt();
+      itemImg.srcset = generateSrcSet(this.#item.getAlbumArt());
+      itemImg.sizes = generateSizes();
       itemImg.alt = this.#item.getTitle();
+      itemImg.src = this.#item.getAlbumArt();
+      itemImg.loading = "lazy";
     }
   }
 
