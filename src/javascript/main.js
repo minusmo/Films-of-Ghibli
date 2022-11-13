@@ -59,6 +59,7 @@ async function main() {
         console.error(error);
     }
 }
+
 window.onload = () => {
     main();
 };

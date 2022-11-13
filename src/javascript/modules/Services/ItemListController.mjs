@@ -37,6 +37,7 @@ export class ItemListController {
         }
         return filteredItems;
     }
+    
     #filterByGenre(copiedItems, value) {
         return copiedItems.filter(item => {
             const genre = item.getGenre();

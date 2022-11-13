@@ -30,7 +30,7 @@ export class Item extends HTMLElement {
     shadowRoot.innerHTML = style;
     this.#shadowRoot = shadowRoot;
     const itemImg = document.createElement("img");
-    itemImg.setAttribute("id", "item-img");
+    itemImg.setAttribute("class", "item-img");
     shadowRoot.appendChild(itemImg);
   }
 
