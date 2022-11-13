@@ -9,7 +9,7 @@ const style = `
             grid-template-rows: 1fr;
             grid-template-columns: 1fr 1fr;
         }
-        @media (max-width: 400px) {
+        @media (max-width: 450px) {
             :host {
                 width: 100vw;
                 height: auto;

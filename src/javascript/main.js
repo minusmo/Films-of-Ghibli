@@ -12,7 +12,7 @@ import { CollectionInfo } from "./modules/Views/ItemList/CollectionInfo.mjs";
 import { ItemList } from "./modules/Views/ItemList/Itemlist.mjs";
 import { Item } from "./modules/Views/ItemList/Item.mjs";
 import { ItemCollection } from "./modules/Models/ItemCollection.mjs";
-import { Divider } from "./modules/Views/utils/Divider.mjs";
+import { Divider } from "./modules/Views/viewutils/Divider.mjs";
 import { SortSelection } from "./modules/Views/Forms/SortSelection.mjs";
 
 async function main() {
@@ -59,6 +59,7 @@ async function main() {
         console.error(error);
     }
 }
+
 window.onload = () => {
     main();
 };

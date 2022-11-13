@@ -1,5 +1,7 @@
 "use strict";
 
+import { generateSizes, generateSrcSet } from "../utils/generateSrcset.js";
+
 const style = `
     <style>
         :host {
@@ -16,7 +18,7 @@ const style = `
             scale: 1.3;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
             #img-content {
                 width: 75vw;
             }
@@ -41,6 +43,8 @@ export class SingleImg extends HTMLElement {
     addImg(img) {
         this.#imgSrc = img;
         this.#imgContent.src = img;
+        this.#imgContent.srcset = generateSrcSet(img);
+        this.#imgContent.sizes = generateSizes();
     }
 }
 

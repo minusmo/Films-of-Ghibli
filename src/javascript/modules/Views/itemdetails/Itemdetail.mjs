@@ -1,7 +1,7 @@
 "use strict";
 
 import { AlbumDetails } from "../../Models/AlbumDetails.mjs";
-import { Divider } from "../utils/Divider.mjs";
+import { Divider } from "../viewutils/Divider.mjs";
 
 const style = `
     <style>
@@ -65,7 +65,7 @@ const style = `
             margin: 0 auto;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
             :host {
                 width: 100vw;
                 height: 100vh;
