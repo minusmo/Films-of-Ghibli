@@ -68,7 +68,7 @@ const style = `
         @media (max-width: 500px) {
             :host {
                 width: 100vw;
-                height: 100vh;
+                height: 100%;
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr 0 1fr;
                 background-color: white;

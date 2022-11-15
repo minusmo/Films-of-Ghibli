@@ -37,6 +37,25 @@ Here's what you can do with this application
 - [x] Add Favicon
 - [ ] Update Browser Tests
 
+## Site Performance
+It is measured by lighthouse in Google Chrome Devtools
+### Before Improvement
+Desktop Performance
+![Before Desktop](/readme_assets/dektop-before.png)
+Mobile Performance
+![Before Mobile](/readme_assets/mobile-before.png)
+
+### After Improvement
+Desktop Performance
+![After Desktop](/readme_assets/desktop-after.png)
+Mobile Performance
+![After Mobile](/readme_assets/mobile-after.png)
+
+### How was it improved
+Site Performance is improved by using webpack.
+I bundled the JS modules and minimized the JS code to main.js in dist directory.
+But still needs to be improved for mobile Devices.
+
 ### Contact
 
 - Email: bldolphin96@gmail.com
