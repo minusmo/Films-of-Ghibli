@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42573379-e351-4b79-80a2-e52fcc6f1b59" name="Changes" comment="chore: add lit dependency" />
+    <list default="true" id="42573379-e351-4b79-80a2-e52fcc6f1b59" name="Changes" comment="feat: add basic web components" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +58,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,7 +73,7 @@
       <updated>1677226572308</updated>
       <workItem from="1677226573458" duration="1427000" />
       <workItem from="1677423030304" duration="968000" />
-      <workItem from="1677508520346" duration="334000" />
+      <workItem from="1677508520346" duration="1011000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: web components for reusage and optimization">
       <created>1677423301510</created>
@@ -91,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677508746939</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="chore: ignore dev files">
+      <created>1677509096806</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677509096807</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: add basic web components">
+      <created>1677509521413</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677509521413</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +119,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor: web components for reusage and optimization" />
     <MESSAGE value="chore: add lit dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add lit dependency" />
+    <MESSAGE value="chore: ignore dev files" />
+    <MESSAGE value="feat: add basic web components" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add basic web components" />
   </component>
 </project>
