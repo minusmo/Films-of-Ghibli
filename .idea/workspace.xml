@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42573379-e351-4b79-80a2-e52fcc6f1b59" name="Changes" comment="feat: add basic web components" />
+    <list default="true" id="42573379-e351-4b79-80a2-e52fcc6f1b59" name="Changes" comment="feat: add basic web components">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +76,9 @@
       <workItem from="1677226573458" duration="1427000" />
       <workItem from="1677423030304" duration="968000" />
       <workItem from="1677508520346" duration="1011000" />
+      <workItem from="1677677324813" duration="119000" />
+      <workItem from="1677677467048" duration="2000" />
+      <workItem from="1677682679588" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: web components for reusage and optimization">
       <created>1677423301510</created>
