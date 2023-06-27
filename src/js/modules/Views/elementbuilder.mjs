@@ -43,7 +43,6 @@ export class ElementBuilder {
     this.#style = styleObj;
     for (const [prop, val] of Object.entries(styleObj)) {
       this.#element.style[prop] = val;
-      console.log(prop,val);
     }
     return this;
   }

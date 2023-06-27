@@ -7,7 +7,7 @@
       content="My favorite musics"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta http-equiv="Content-Security-Policy" content="script-src 'sha256-OKbYnGp59AZUeO8NoCUy3fXKy9MBPkMjgB9WwHYkdL4=' 'strict-dynamic' https: 'unsafe-inline'; object-src 'none';base-uri 'none';"/>
     <title>My Favorite Musics</title>
     <link rel="icon" href="./src/assets/images/icons/favicon.ico" />
     <!-- link google fonts -->
@@ -21,8 +21,11 @@
     <link rel="stylesheet" href="./src/styles/modern-css-reset.css" />
     <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
-
   <body>
-    <script src="./dist/main.js"></script>
+    <script>
+      const mainScript = document.createElement("script");
+      mainScript.src = "./dist/main.js";
+      document.body.appendChild(mainScript);
+    </script>
   </body>
 </html>
