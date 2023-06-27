@@ -1,13 +1,14 @@
 "use strict";
 
 import { AlbumDetails } from "../../Models/AlbumDetails.mjs";
+import { ElementBuilder } from "../elementbuilder.mjs";
 import { Divider } from "../viewutils/Divider.mjs";
 
 const style = `
     <style>
         :host {
-            display: none;
             z-index: 1;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -60,11 +61,9 @@ const style = `
         #album-recommendedTracks div span:nth-child(2) {
             padding-left: 2.5%;
         }
-
         #divider {
             margin: 0 auto;
         }
-
         @media (max-width: 500px) {
             :host {
                 width: 100vw;
@@ -78,6 +77,7 @@ const style = `
     </style>
 `;
 
+const backgroundImageUrl = "./src/assets/images/icons/reshot-icon-angle-back-8E4DS2MACR.svg";
 export class ItemDetail extends HTMLElement {
     #shadowRoot;
     #title;
@@ -100,15 +100,17 @@ export class ItemDetail extends HTMLElement {
     }
 
     #addBackButton() {
-        const backButton = document.createElement("button");
-        backButton.style.backgroundImage = "url(./src/assets/images/icons/reshot-icon-angle-back-8E4DS2MACR.svg)";
-        backButton.setAttribute("id", "button-back");
-        backButton.addEventListener("click", () => {
+        const backButton = new ElementBuilder().of("button")
+        .hasIdAs("button-back")
+        .styledAs({
+            backgroundImage: `url(${backgroundImageUrl})`,
+        }).listeningOn("click", () => {
             this.#removeChildren(this.#recommendedTracks);
             this.#removeChildren(this.#streams);
             this.#enableItemListScroll();
             this.hide();
-        });
+        }).build();
+
         this.#shadowRoot.appendChild(backButton);
     }
 
@@ -119,62 +121,44 @@ export class ItemDetail extends HTMLElement {
     }
 
     #removeChildren(node) {
-        if (node) {
-            while (node.lastChild) {
-                node.removeChild(node.lastChild);
-            }
+        if (!node) return;
+        while (node.lastChild) {
+            node.removeChild(node.lastChild);
         }
     }
 
-    hide() {
-        this.style.display = "none";
-    }
-
-    display() {
-        this.style.display = "grid";
-    }
-
     #addInfoSection() {
-        const section = document.createElement("section");
-        section.setAttribute("id", "section-info");
-
-        const title = document.createElement("p");
-        title.setAttribute("id", "album-title");
+        const children = [];
+        const title = new ElementBuilder().of("p").hasIdAs("album-title").build();
         this.#title = title;
-        const artist = document.createElement("p");
-        artist.setAttribute("id", "album-artist");
+        children.push(title);
+        
+        const artist = new ElementBuilder().of("p").hasIdAs("album-artist").build();
         this.#artist = artist;
-        const genre = document.createElement("p");
-        genre.setAttribute("id", "album-genre");
+        children.push(artist);
+        
+        const genre = new ElementBuilder().of("p").hasIdAs("album-genre").build();
         this.#genre = genre;
-        const recommendation = document.createElement("p");
-        recommendation.setAttribute("id", "album-recommendation");
+        children.push(genre);
+        
+        const recommendation = new ElementBuilder().of("p").hasIdAs("album-recommendation").build();
         this.#recommendation = recommendation;
-        const releasedYear = document.createElement("p");
-        releasedYear.setAttribute("id", "album-releaseYear");
+        children.push(recommendation);
+        
+        const releasedYear = new ElementBuilder().of("p").hasIdAs("album-releasedYear").build();
         this.#releasedYear = releasedYear;
-        const streams = document.createElement("ul");
-        streams.setAttribute("id", "album-streams");
+        children.push(releasedYear);
+        
+        const streams = new ElementBuilder().of("ul").hasIdAs("album-streams").build();
         this.#streams = streams;
-        const recommendedTracks = document.createElement("section");
-        recommendedTracks.setAttribute("id", "album-recommendedTracks");
+        children.push(streams);
+        
+        const recommendedTracks = new ElementBuilder().of("section").hasIdAs("album-recommendedTracks").build();
         this.#recommendedTracks = recommendedTracks;
-
-        section.appendChild(title);
-        section.appendChild(artist);
-        section.appendChild(genre);
-        section.appendChild(recommendation);
-        section.appendChild(releasedYear);
-        section.appendChild(streams);
-        section.appendChild(recommendedTracks);
-
+        children.push(recommendedTracks);
+        
+        const section = new ElementBuilder().of("section").hasIdAs("section-info").hasChildrenOf(children).build();
         this.#shadowRoot.appendChild(section);
-    }
-
-    showItem(item) {
-        this.#addItemInfo(item.getItemObject());
-        this.#addItemImg(item.getAlbumArt());
-        this.display();
     }
 
 
@@ -196,30 +180,23 @@ export class ItemDetail extends HTMLElement {
             this.#releasedYear.textContent = albumDetails.getReleasedYearText();
             
             for (const [service, url] of albumDetails.getStreamList()) {
-                const stream = document.createElement("a");
-                stream.textContent = service;
-                stream.setAttribute("href", url);
+                const stream = new ElementBuilder().of("a").hasAttributeOf("href", url)
+                .hasTextOf(service).build();
                 this.#streams.appendChild(stream);
             }
             
-            const recommendedTracksTitle = document.createElement("p");
-            recommendedTracksTitle.setAttribute("id", "RT-title");
-            const tracksTitle = document.createElement("strong");
-            tracksTitle.textContent = "Recommended Tracks";
-            recommendedTracksTitle.appendChild(tracksTitle);
+            const tracksTitle = new ElementBuilder().of("strong").hasTextOf("Recommended Tracks").build();
+            const recommendedTracksTitle = new ElementBuilder().of("p")
+            .hasAttributeOf("id", "RT-title").hasChildrenOf([tracksTitle]).build();
             this.#recommendedTracks.appendChild(recommendedTracksTitle);
+
             for (const [head, tail] of albumDetails.getRecommendedTracks()) {
-                const trackBox = document.createElement("div");
-                const trackHead = document.createElement("span");
-                const trackTail = document.createElement("span");
-                trackHead.textContent = head;
-                trackTail.textContent = tail;
-                trackBox.appendChild(trackHead);
-                trackBox.appendChild(trackTail);
+                const trackHead = new ElementBuilder().of("span").hasTextOf(head).build();
+                const trackTail = new ElementBuilder().of("span").hasTextOf(tail).build();
+                const trackBox = new ElementBuilder().of("div")
+                .hasChildrenOf([trackHead, trackTail]).build();
                 this.#recommendedTracks.appendChild(trackBox);
             }
-            
-
         }
     }
 
@@ -242,11 +219,18 @@ export class ItemDetail extends HTMLElement {
         }
     }
 
-    addImgCarousel(imgCarousel) {
-        if (imgCarousel) {
-            imgCarousel.setAttribute("id", "img-container");
-            this.#shadowRoot.appendChild(imgCarousel);
-        }
+    hide() {
+        this.style.display = "none";
+    }
+
+    display() {
+        this.style.display = "grid";
+    }
+
+    showItem(item) {
+        this.#addItemInfo(item.getItemObject());
+        this.#addItemImg(item.getAlbumArt());
+        this.display();
     }
 }
 

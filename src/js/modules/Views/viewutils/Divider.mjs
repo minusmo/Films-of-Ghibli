@@ -11,7 +11,6 @@ const style = `
             top: 5%;
             left: 50%;
         }
-
         @media (max-width: 500px) {
             :host {
                 position: static;

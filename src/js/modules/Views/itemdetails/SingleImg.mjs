@@ -1,5 +1,6 @@
 "use strict";
 
+import { ElementBuilder } from "../elementbuilder.mjs";
 import { generateSizes, generateSrcSet } from "../utils/generateSrcset.js";
 
 const style = `
@@ -17,7 +18,6 @@ const style = `
         #img-content:hover {
             scale: 1.3;
         }
-
         @media (max-width: 500px) {
             #img-content {
                 width: 75vw;
@@ -34,8 +34,8 @@ export class SingleImg extends HTMLElement {
         this.#imgSrc = imgSrc;
         const shadowRoot = this.attachShadow({ mode: "open"});
         shadowRoot.innerHTML = style;
-        const imgContent = document.createElement("img");
-        imgContent.setAttribute("id", "img-content");
+
+        const imgContent = new ElementBuilder().of("img").hasIdAs("img-content").build();
         this.#imgContent = imgContent;
         shadowRoot.appendChild(imgContent);
     }

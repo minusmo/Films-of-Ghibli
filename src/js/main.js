@@ -1,5 +1,5 @@
 "use strict";
-import { GET_MUSIC } from "./modules/Models/DB/Credentials.mjs";
+import { GET_MUSIC } from "./modules/Models/DB/apis.mjs";
 import { Album } from "./modules/Models/Album.mjs";
 import { DataRetriever } from "./modules/Services/DataRetriever.mjs";
 import { ItemListController } from "./modules/Services/ItemListController.mjs";

@@ -25,18 +25,6 @@ export class ItemList extends HTMLElement {
     this.#addStyle(style);
   }
 
-  renderItems() {
-    this.#shadowRoot.replaceChildren();
-    this.#addStyle(style);
-    this.#appendItems();
-  }
-
-  connectedCallback() {
-    if (this.isConnected) {
-      this.#appendItems();
-    }
-  }
-
   #addStyle(hostStyle) {
     this.#shadowRoot.innerHTML = hostStyle;
   }
@@ -50,14 +38,25 @@ export class ItemList extends HTMLElement {
     }
   }
 
+  connectedCallback() {
+    if (!this.isConnected) return;
+    this.#appendItems();
+  }
+  
   disconnectedCallback() {
     for (let child of this.children) {
       this.#shadowRoot.removeChild(child);
     }
   }
-
+  
   addController(controller) {
     this.#itemListController = controller;
+  }
+
+  renderItems() {
+    this.#shadowRoot.replaceChildren();
+    this.#addStyle(style);
+    this.#appendItems();
   }
 }
 
