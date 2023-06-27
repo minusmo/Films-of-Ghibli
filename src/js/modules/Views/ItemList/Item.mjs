@@ -1,4 +1,5 @@
 "use strict";
+import { ElementBuilder } from "../elementbuilder.mjs";
 import { generateSrcSet, generateSizes } from "../utils/generateSrcset.js";
 
 const style = `
@@ -30,8 +31,8 @@ export class Item extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.innerHTML = style;
     this.#shadowRoot = shadowRoot;
-    const itemImg = document.createElement("img");
-    itemImg.setAttribute("id", "item-img");
+
+    const itemImg = new ElementBuilder().of("img").hasIdAs("item-img").build();
     shadowRoot.appendChild(itemImg);
   }
 

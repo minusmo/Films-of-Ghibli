@@ -18,6 +18,7 @@ export class ItemListController {
     getItemList() {
         return this.#itemCollection.getItems();
     }
+    
     getItemIterator() {
         return this.#itemCollection.createIterator();
     }

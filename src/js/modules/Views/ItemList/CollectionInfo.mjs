@@ -1,5 +1,7 @@
 "use strict";
 
+import { ElementBuilder } from "../elementbuilder.mjs";
+
 const style = `
     <style>
         :host {
@@ -20,17 +22,16 @@ export class CollectionInfo extends HTMLElement {
   }
 
   addCollectionName() {
-    const heading = document.createElement("h1");
-    heading.setAttribute("id", "collection-name");
-    heading.textContent = this.#collectionInfoController.getCollectionName();
+    const heading = new ElementBuilder().of("h1").hasIdAs("collection-name")
+    .hasTextOf(this.#collectionInfoController.getCollectionName())
+    .build();
     this.#shadowRoot.appendChild(heading);
   }
 
   addCollectionDescription() {
-    const paragraph = document.createElement("p");
-    paragraph.setAttribute("id", "collection-description");
-    paragraph.textContent =
-      this.#collectionInfoController.getCollectionDescription();
+    const paragraph = new ElementBuilder().of("p").hasIdAs("collection-description")
+    .hasTextOf(this.#collectionInfoController.getCollectionDescription())
+    .build();
     this.#shadowRoot.appendChild(paragraph);
   }
 

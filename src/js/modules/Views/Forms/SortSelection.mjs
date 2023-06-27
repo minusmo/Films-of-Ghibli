@@ -1,4 +1,5 @@
 "use strict";
+import { ElementBuilder } from "../elementbuilder.mjs";
 
 const options = {
     "addedOrder": "추가된 순서",
@@ -10,14 +11,14 @@ const options = {
 const style = `
     <style>
         :host {
-            display: flex;
             width: 100%;
             height: 10%;
-            border: 2px solid black;
-            box-shadow: 3px 3px black;
-            flex-direction: row;
+            display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: row;
+            border: 2px solid black;
+            box-shadow: 3px 3px black;
         }
         #sort-select {
             margin: 0.5rem;
@@ -44,20 +45,18 @@ export class SortSelection extends HTMLElement {
     }
     
     #addLabel() {
-        const label = document.createElement("label");
-        label.setAttribute("for", "sort-select");
-        label.textContent = "SortBy";
+        const label = new ElementBuilder()
+        .of("label").for("sort-selected").hasTextOf("SortBy").build();
         this.#shadowRoot.appendChild(label);
     }
 
     #addSelect() {
-        const select = document.createElement("select");
-        select.setAttribute("id", "sort-select");
-        select.setAttribute("name", "sort-select");
-        select.addEventListener("change", (event) => {
+        const select = new ElementBuilder().of("select")
+        .hasIdAs("sort-select").hasNameOf("sort-select")
+        .listeningOn("change", (event) => {
             this.#selectedValue = event.target.value;
             this.#sortByOption(this.#selectedValue);
-        });
+        }).build();
         this.#shadowRoot.appendChild(select);
     }
 
@@ -69,9 +68,8 @@ export class SortSelection extends HTMLElement {
     #addOptions(values) {
         const select = this.#shadowRoot.querySelector("#sort-select");
         for (const value of values) {
-            const option = document.createElement("option");
-            option.setAttribute("value", value);
-            option.textContent = options[value];
+            const option = new ElementBuilder().of("option")
+            .hasValueOf(value).hasTextOf(options[value]).build();
             select.appendChild(option);
         }
     }

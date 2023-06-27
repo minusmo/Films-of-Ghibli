@@ -3,8 +3,8 @@
 export const generateSrcSet = (imgPath) => {
     const lastdotPos = imgPath.lastIndexOf(".");
     const smallImgPath = imgPath.substring(0,lastdotPos) + "-small.jpg";
-    const smallSrc = smallImgPath + ' ' + '300w';
-    const largeSrc = imgPath + ' ' + '600w';
+    const smallSrc = smallImgPath + " " + "300w";
+    const largeSrc = imgPath + " " + "600w";
     const srcs = [smallSrc, largeSrc];
     return srcs.join(", ");
 };
